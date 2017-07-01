@@ -37,9 +37,11 @@ $(function(){
 	<div class="contents-wrap">
 	<h2>MY AGENCY REQUEST</h2>
 	<table class="table table-hover">
-	<th>TITLE</th>
-	<th>PUBDATE</th>
-	<th>COMMIT</th>
+	<tr>
+		<th>TITLE</th>
+		<th>PUBDATE</th>
+		<th>COMMIT</th>
+	</tr>
 	<c:forEach items="${list }" var="dto">
 		<%-- <c:if test="${memberDTO.name eq dto.director }"> --%>
 			<tr>
@@ -76,7 +78,7 @@ $(function(){
 	</div>
 		
 	<p><a class="btn btn-info" href="./agencyRequest">WRITE</a></p>
-	<a class="btn btn-info" href="../../">HOME</a></p>
+	<p><a class="btn btn-info" href="../../">HOME</a></p>
 	</div>
 </body>
 </html>
