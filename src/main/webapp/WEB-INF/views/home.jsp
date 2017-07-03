@@ -131,9 +131,6 @@ video{
 		
 			</c:if>
 		</c:if>
-		
-		
-
 
 </body>
 </html>
