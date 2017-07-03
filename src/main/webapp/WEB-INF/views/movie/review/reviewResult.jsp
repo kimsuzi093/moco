@@ -223,6 +223,7 @@
 					<td>
 						<button class="reviewLikes btn btn-default" id="${review.num}">좋아요 ${review.likes}</button>
 					</td>									
+					<input type="hidden" id="reviewLikesMessage" value="${message}">
 				</c:if>
 				<c:if test="${review.num == reviewDTO.num}">
 					<td>

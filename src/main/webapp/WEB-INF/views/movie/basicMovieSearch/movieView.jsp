@@ -41,9 +41,8 @@
 				},
 				function(data){
 					$("#reviewResult").html(data);
-					if('${message}' != null){
-						alert('${message}');
-					}
+					var message = $("#reviewLikesMessage").val();
+					alert(message);
 				});
 		});
 		

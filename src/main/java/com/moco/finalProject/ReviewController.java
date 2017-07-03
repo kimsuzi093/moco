@@ -61,6 +61,7 @@ public class ReviewController {
 		// insert
 		if(check){
 			reviewService.reviewLikesInsert(reviewLikeDTO);
+			model.addAttribute("message", "'좋아요'");
 		}else{
 			model.addAttribute("message", "'좋아요'는 한번만 누르실 수 있습니다. ");
 		}
