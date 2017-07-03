@@ -18,7 +18,7 @@ $(function() {
 	var answerCheck = false;
 	var nameCheck = false;
 	var emailCheck = false;
-	
+
 	$("#id").keyup(function(){
 		var pattern = /^[A-Za-z0-9]{4,12}$/;
 		var id = document.frm.id.value;
