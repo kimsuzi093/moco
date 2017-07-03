@@ -65,11 +65,13 @@ public class AdminController {
 	// movieRequest
 	@RequestMapping(value="movieRequest",method=RequestMethod.GET)
 	public void movieRequest(Integer curPage, Model model) throws Exception{
-		
-		
+		// movieRequestList
 		model.addAttribute("movieRequestList", movieRequestService.movieRequestList(curPage));
-		
 		// 페이징
+		PageMaker pageMaker = new PageMaker(curPage, 10);
+		PageResult pageResult = pageMaker.paging(movieRequestService.movieRequestTotalCount());
+		model.addAttribute("pageResult", pageResult);
+		
 	}
 	
 	////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

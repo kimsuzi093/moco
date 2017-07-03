@@ -41,12 +41,13 @@
 			<attribute name="maven.pomderived" value="true"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry exported="true" kind="con" path="org.eclipse.m2e.MAVEN2_CLASSPATH_CONTAINER">
+	<classpathentry kind="con" path="org.eclipse.m2e.MAVEN2_CLASSPATH_CONTAINER">
 		<attributes>
 			<attribute name="maven.pomderived" value="true"/>
 			<attribute name="org.eclipse.jst.component.dependency" value="/WEB-INF/lib"/>
 		</attributes>
 	</classpathentry>
+<<<<<<< HEAD
 <<<<<<< HEAD
 	<classpathentry exported="true" kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
 =======
@@ -64,5 +65,7 @@
 	</classpathentry>
 >>>>>>> 61db8a794a56762ab27099ea7abe5c460af78f86
 >>>>>>> e724f3bcebd94c37728279d4735fd3eda05c480f
+=======
+>>>>>>> 672fa30ae4fb56aec350dace7985a67f11c7afc7
 	<classpathentry kind="output" path="target/classes"/>
 </classpath>

@@ -23,6 +23,10 @@ public class MovieRequestService {
 		map.put("row", rowMaker);
 		return movieRequestDAO.movieRequestList(map);
 	}
+	// movieRequestTotalCount
+	public int movieRequestTotalCount() throws Exception{
+		return movieRequestDAO.movieRequestTotalCount();
+	}
 
 	// insert
 	public int movieRequestInsert(Map<String, Object> map) throws Exception{
