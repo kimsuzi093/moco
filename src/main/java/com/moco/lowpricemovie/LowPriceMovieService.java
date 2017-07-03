@@ -52,6 +52,19 @@ public class LowPriceMovieService {
 		return lowPriceMovieDAO.view(num);
 	}
 	
+	//영화 delete
+	public int delete(int num) throws Exception{
+		return lowPriceMovieDAO.delete(num);
+	}
+	
+	//영화 insert
+	public int insert(LowPriceMovieDTO lowPriceMovieDTO) throws Exception{
+		return lowPriceMovieDAO.insert(lowPriceMovieDTO);
+	}
+	//영화 update
+	public int update(LowPriceMovieDTO lowPriceMovieDTO) throws Exception{
+		return lowPriceMovieDAO.update(lowPriceMovieDTO);
+	}
 	//극장 LIST
 	public Map<String, Object> theaterList(int curPage, int perPage, String kind, String search) throws Exception{
 		PageMaker pageMaker = new PageMaker(curPage, perPage);
@@ -206,46 +219,7 @@ public class LowPriceMovieService {
 	}
 	
 	
-	/*private List<ScreenDTO> screenCal(int movie_num, int multi_num, Date start_date, Date end_date, int available_seat) throws Exception{
-		
-		long s_date = start_date.getTime();
-		long e_date = end_date.getTime();
-		int gab = (int)((e_date - s_date)/24/60/60/1000);
-		System.out.println("gab : "+gab);
-		
-		Calendar ca = Calendar.getInstance();
-		ca.setTime(start_date);
-		System.out.println("상영시작일 : "+this.toString(ca));
-		
-		
-		List<ScreenDTO> ar = new ArrayList<ScreenDTO>();
-		ScreenDTO screenDTO = new ScreenDTO();
-		screenDTO.setMulti_num(multi_num);
-		screenDTO.setMovie_num(movie_num);
-		screenDTO.setShow_date(start_date);
-//		screenDTO.setHour(hour);
-//		screenDTO.setMinute(minute);
-		screenDTO.setAvailable_seat(available_seat);
-		screenDTO.setCommit(0);
-		ar.add(screenDTO);
-		
-		for(int i=0 ; i<gab ; i++){
-			screenDTO = new ScreenDTO();
-			screenDTO.setMulti_num(multi_num);
-			screenDTO.setMovie_num(movie_num);
-//			screenDTO.setHour(hour);
-//			screenDTO.setMinute(minute);
-			screenDTO.setAvailable_seat(available_seat);
-			screenDTO.setCommit(0);
-			Calendar.MIN
-			ca.add(Calendar.DATE, 1);
-			screenDTO.setShow_date(Date.valueOf(this.toString(ca)));
-			
-			ar.add(screenDTO);
-		}
-		
-		return ar;
-	}*/
+	
 	
 	
 	
