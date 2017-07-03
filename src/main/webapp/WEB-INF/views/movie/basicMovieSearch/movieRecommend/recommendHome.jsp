@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!DOCTYPE html>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -144,15 +144,12 @@
 </style>
 </head>
 <body>
-<<<<<<< HEAD
 	<ul class="nav nav-tabs nav-justified">
 	    <li><a href="">영화검색</a></li>
 	    <li class="active"><a href="">영화추천</a></li>
 	</ul>
-=======
 	<%@ include file="/resources/part/header1.jspf" %>
 	<section>
->>>>>>> c243a9822a65110227fb206a47f4189471838fd6
 	<div id="recommendCriteria">
 		<button id="genreRecommend" class="btn">장르별 추천영화</button>
 		<button id="yearRecommend" class="btn">년도별 추천영화</button>

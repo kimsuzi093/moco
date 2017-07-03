@@ -119,7 +119,7 @@ public class BasicMovieController {
 			testJjim.setId(((MemberDTO)session.getAttribute("memberDTO")).getId());
 			jjimDTO = basicMovieService.jjimCheck(testJjim);
 			review_count = basicMovieService.reviewCount(num);
-<<<<<<< HEAD
+
 			
 			// 신청하기, 보러가기, -
 			Map<String, Object> sub_map = new HashMap<String, Object>();
@@ -129,9 +129,9 @@ public class BasicMovieController {
 			if(movieRequestDTO != null){
 				model.addAttribute("requestMessage", "접수중");
 			}
-=======
+
 			/*MovieRequestDTO = */
->>>>>>> c243a9822a65110227fb206a47f4189471838fd6
+
 		} catch (Exception e) {
 			
 		}
