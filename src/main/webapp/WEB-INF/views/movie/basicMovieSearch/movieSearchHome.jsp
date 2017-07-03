@@ -4,8 +4,10 @@
 <!DOCTYPE html>
 <html>
 <head>
-<%@ include file="./bootstrap.jspf"%>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<%@ include file="/resources/part/bootStrap.jspf" %>
+<script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.js"></script>
+<link rel="styleSheet" type="text/css" href="${pageContext.request.contextPath}/resources/css/header.css">
+<link rel="styleSheet" type="text/css" href="${pageContext.request.contextPath}/resources/css/section.css">
 <title>Insert title here</title>
 <style type="text/css">
 	.searchResultWrap{
@@ -90,6 +92,8 @@
 </script>
 </head>
 <body>
+	<%@ include file="/resources/part/header1.jspf" %>
+	<section>
 <a href="./movieRecommend/recommendHome">RECOMMEND PAGE</a>
 	<ul class="nav nav-tabs nav-justified">
 	    <li class="active"><a href="./movieRecommend/recommendHome">영화검색</a></li>
@@ -159,5 +163,6 @@
 	<div id="searchResult">
 		
 	</div>
+	</section>
 </body>
 </html>

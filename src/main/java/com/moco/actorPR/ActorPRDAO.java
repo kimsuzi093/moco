@@ -38,8 +38,8 @@ public class ActorPRDAO {
 		}
 	}
 		
-	public String fnameSelect(Map<String, Object> map) throws Exception{
-		return sqlSession.selectOne(namespace+"fnameSelect", map);
+	public String onameSelect(Map<String, Object> map) throws Exception{
+		return sqlSession.selectOne(namespace+"onameSelect", map);
 	}
 	
 	public int totalCount(Map<String, Object> map) throws Exception{

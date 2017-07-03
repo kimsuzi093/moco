@@ -20,6 +20,10 @@ import com.moco.agency.AgencyService;
 import com.moco.fileTest.FileSaver;
 import com.moco.member.MemberDTO;
 import com.moco.member.MemberService;
+<<<<<<< HEAD
+=======
+import com.moco.movieRequest.MovieRequestDTO;
+>>>>>>> e724f3bcebd94c37728279d4735fd3eda05c480f
 import com.moco.movieRequest.MovieRequestService;
 import com.moco.paidMovie.PaidMovieDTO;
 import com.moco.paidMovie.PaidMovieService;
@@ -53,11 +57,23 @@ public class AdminController {
 		// userCommit - 대기중
 		model.addAttribute("userBoardCommitCount", userBoardService.adminIndexCount());
 		// memberList - 대기중
-		model.addAttribute("memberStateCount", 0);
+		model.addAttribute("memberStateCount", memberService.adminStateCount());
 		// 배급사 신청 - 대기중
-		model.addAttribute("agencyCommitCount", 0);
+		model.addAttribute("agencyCommitCount", agencyService.agencyUncommitCount());
 	}
 
+	// movieRequest
+	@RequestMapping(value="movieRequest",method=RequestMethod.GET)
+	public void movieRequest(Integer curPage, Model model) throws Exception{
+		// movieRequestList
+		model.addAttribute("movieRequestList", movieRequestService.movieRequestList(curPage));
+		// 페이징
+		PageMaker pageMaker = new PageMaker(curPage, 10);
+		PageResult pageResult = pageMaker.paging(movieRequestService.movieRequestTotalCount());
+		model.addAttribute("pageResult", pageResult);
+		
+	}
+	
 	////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 	// movieUpload
 	@RequestMapping(value="movieUpload",method=RequestMethod.GET)
@@ -339,7 +355,7 @@ public class AdminController {
 		PageResult pageResult1=pageMaker1.paging(totalCount1);
 		
 		PageMaker pageMaker2=new PageMaker(curPage2,perPage);
-		int totalCount2=agencyService.agencyUncommitCount(map2); //승인된 게시물 수
+		int totalCount2=agencyService.agencyUncommitCount(); //승인된 게시물 수
 		PageResult pageResult2=pageMaker2.paging(totalCount2);
 		
 		List<AgencyDTO> ar1=agencyService.agencyCommitList(map1);
@@ -408,7 +424,7 @@ public class AdminController {
 	
 		
 		PageMaker pageMaker=new PageMaker(curPage,perPage);
-		int totalCount=agencyService.agencyUncommitCount(map); //승인된 게시물 수
+		int totalCount=agencyService.agencyUncommitCount(); //승인된 게시물 수
 		PageResult pageResult=pageMaker.paging(totalCount);
 		
 		List<AgencyDTO> ar=agencyService.agencyUncommitList(map);

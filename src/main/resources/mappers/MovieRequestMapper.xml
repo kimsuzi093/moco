@@ -11,6 +11,9 @@
 		(select * from movieRequest order by num desc) M)
 		where R between #{row.startRow} and #{row.lastRow} 
 	</select>
+	<select id="movieRequestTotalCount" resultType="java.lang.Integer">
+		select count(num) from movieRequest
+	</select>
 	<insert id="movieRequestInsert" parameterType="java.util.Map">
 		insert into movierequest 
 		<if test="kind == 'bNum'">

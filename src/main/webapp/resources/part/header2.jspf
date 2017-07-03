@@ -39,7 +39,7 @@
 		</li>
 
 		<li class="dropdown">
-			<a href="#">click</a>
+			<a href="${pageContext.request.contextPath}/user/directorBoard/directorBoardList">DirectorBoardList</a>
 			<div class="dropdown-content">
 				<a href="#">Link 1</a>
 				<a href="#">Link 2</a>
@@ -48,13 +48,32 @@
 		</li>
 
 		<li class="dropdown">
-			<a href="${pageContext.request.contextPath}/movieSchedule/movieScheduleTable">Movie Schedule</a>
+			<a href="${pageContext.request.contextPath}/user/userBoard/userBoardList?season=all">UserBoardList</a>
 			<div class="dropdown-content">
 				<a href="#">Link 1</a>
 				<a href="#">Link 2</a>
 				<a href="#">Link 3</a>
   			</div>
 		</li>
+		
+		<li class="dropdown">
+			<a href="${pageContext.request.contextPath}/user/agency/agencyList">Agency</a>
+			<div class="dropdown-content">
+				<a href="#">Link 1</a>
+				<a href="#">Link 2</a>
+				<a href="#">Link 3</a>
+  			</div>
+		</li>
+		
+		<li class="dropdown">
+			<a href="${pageContext.request.contextPath}/user/actorPR/actorPRList">ActorPR</a>
+			<div class="dropdown-content">
+				<a href="#">Link 1</a>
+				<a href="#">Link 2</a>
+				<a href="#">Link 3</a>
+  			</div>
+		</li>
+		
 	</ul>
 
 	<div class="log">
@@ -65,40 +84,41 @@
 
 		<c:if test="${memberDTO ne null }">
 			<span>${memberDTO.name} 님</span>
+			<span><a class="btn btn-primary" href="${pageContext.request.contextPath}/admin/index">Admin Page</a></span>
 			<span><a class="btn btn-info" href="${pageContext.request.contextPath}/member/memberView">View</a></span>
 			<span><a class="btn btn-warning" href="${pageContext.request.contextPath}/member/memberLogout">Logout</a></span>
 		</c:if>
 	</div>
 
-		<!-- Modal -->
-		<div class="modal fade" id="myModal" role="dialog">
-			<div class="modal-dialog">
-				<!-- Modal content-->
-				<div class="modal-content">
-					<div class="modal-header">
-						<button type="button" class="close" data-dismiss="modal">&times;</button>
-						<h4 class="modal-title">LOGIN</h4>
-					</div>
+	<!-- Modal -->
+	<div class="modal fade" id="myModal" role="dialog">
+		<div class="modal-dialog">
+			<!-- Modal content-->
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal">&times;</button>
+					<h4 class="modal-title">LOGIN</h4>
+				</div>
 
-					<div class="modal-body">
-						<form action="${pageContext.request.contextPath}/member/memberLogin" method="post">
-							<table class="table">
-								<tr><td>ID <input type="text" class="form-control" name="id"></td></tr>
-								<tr><td>PW <input type="password" class="form-control" name="password"></td></tr>
-							</table>
+				<div class="modal-body">
+					<form action="${pageContext.request.contextPath}/member/memberLogin" method="post">
+						<table class="table">
+							<tr><td>ID <input type="text" class="form-control" name="id"></td></tr>
+							<tr><td>PW <input type="password" class="form-control" name="password"></td></tr>
+						</table>
 
-							<input class="btn btn-success" type="submit" value="LOGIN">
-						</form>
-					</div>
+						<input class="btn btn-success" type="submit" value="LOGIN">
+					</form>
+				</div>
 
-					<div class="modal-footer">
-						<div class="btn-group">
-							<a class="btn btn-primary" href="${pageContext.request.contextPath}/member/memberJoin">JOIN</a>
-							<a class="btn btn-warning" href="${pageContext.request.contextPath}/member/memberSearch?kind=id">ID search</a>
-							<a class="btn btn-warning" href="${pageContext.request.contextPath}/member/memberSearch?kind=password">PW search</a>
-						</div>
+				<div class="modal-footer">
+					<div class="btn-group">
+						<a class="btn btn-primary" href="${pageContext.request.contextPath}/member/memberJoin">JOIN</a>
+						<a class="btn btn-warning" href="${pageContext.request.contextPath}/member/memberSearch?kind=id">ID search</a>
+						<a class="btn btn-warning" href="${pageContext.request.contextPath}/member/memberSearch?kind=password">PW search</a>
 					</div>
 				</div>
 			</div>
 		</div>
+	</div>
 </nav>
