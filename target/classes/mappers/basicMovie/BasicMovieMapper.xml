@@ -103,4 +103,9 @@
 	<delete id="jjimDelete" parameterType="com.moco.jjim.JjimDTO">
 		delete jjim where id=#{id} and bnum=#{bNum}
 	</delete>
+	
+	<!-- 리뷰참여 명 수 -->
+	<select id="reviewCount" parameterType="int" resultType="int">
+		select count(writer) from review where bnum=#{bNum}
+	</select>
 </mapper>

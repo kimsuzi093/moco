@@ -25,8 +25,8 @@ public class AgencyService {
 		return agencyDAO.agencyCommitCount(map);
 	}
 	
-	public int agencyUncommitCount(Map<String, Object> map) throws Exception{
-		return agencyDAO.agencyUncommitCount(map);
+	public int agencyUncommitCount() throws Exception{
+		return agencyDAO.agencyUncommitCount();
 	}
 	
 	public int agencyUpdate(AgencyDTO agencyDTO) throws Exception{

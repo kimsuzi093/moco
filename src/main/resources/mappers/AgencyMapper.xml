@@ -35,7 +35,7 @@
 			where R between #{startRow2} and #{lastRow2}
     	</select>
     	
-    	<select id="agencyUncommitCount" parameterType="java.util.Map" resultType="java.lang.Integer">
+    	<select id="agencyUncommitCount" resultType="java.lang.Integer">
     		select count(num) from agencyrequest where commit=0
     	</select>
     	
