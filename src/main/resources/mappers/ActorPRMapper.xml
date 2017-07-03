@@ -25,8 +25,8 @@
 		update actorprboard set hit=hit-1 where num=#{num}
 	</update>
 	
-	<select id="fnameSelect" parameterType="java.util.Map" resultType="java.lang.String">		
-		select fname from member where name=#{name} and kind=#{actor}
+	<select id="onameSelect" parameterType="java.util.Map" resultType="java.lang.String">		
+		select oname from member where name=#{name} and kind=#{actor}
 	</select>
 	
 	

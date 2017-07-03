@@ -20,6 +20,10 @@ import com.moco.agency.AgencyService;
 import com.moco.fileTest.FileSaver;
 import com.moco.member.MemberDTO;
 import com.moco.member.MemberService;
+<<<<<<< HEAD
+=======
+import com.moco.movieRequest.MovieRequestDTO;
+>>>>>>> e724f3bcebd94c37728279d4735fd3eda05c480f
 import com.moco.movieRequest.MovieRequestService;
 import com.moco.paidMovie.PaidMovieDTO;
 import com.moco.paidMovie.PaidMovieService;
@@ -58,7 +62,17 @@ public class AdminController {
 		model.addAttribute("agencyCommitCount", agencyService.agencyUncommitCount());
 	}
 
-	// 
+	// movieRequest
+	@RequestMapping(value="movieRequest",method=RequestMethod.GET)
+	public void movieRequest(Integer curPage, Model model) throws Exception{
+		// movieRequestList
+		model.addAttribute("movieRequestList", movieRequestService.movieRequestList(curPage));
+		// 페이징
+		PageMaker pageMaker = new PageMaker(curPage, 10);
+		PageResult pageResult = pageMaker.paging(movieRequestService.movieRequestTotalCount());
+		model.addAttribute("pageResult", pageResult);
+		
+	}
 	
 	////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 	// movieUpload

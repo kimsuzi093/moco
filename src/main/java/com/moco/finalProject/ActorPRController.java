@@ -171,9 +171,9 @@ public class ActorPRController {
 			sort =1;
 		}
 		
-		List<String> fnames = new ArrayList<String>();
+		List<String> onames = new ArrayList<String>();
 
-		String fname = "";
+		String oname = "";
 		
 		String curSeason=seasonService.adminOrderSelectOne("actor").getSeason();
 				
@@ -199,8 +199,8 @@ public class ActorPRController {
 		
 		// fnames : 배우들 이미지
 		for(int i=0; i<ar.size();i++){
-			fname = actorPRService.fnameSelect(ar.get(i).getWriter());
-			fnames.add(fname);
+			oname = actorPRService.onameSelect(ar.get(i).getWriter());
+			onames.add(oname);
 		}
 		
 		if(actorPRService.voteListSelect(id)!=null){
@@ -209,7 +209,7 @@ public class ActorPRController {
 			model.addAttribute("message", "");
 		}
 		
-		model.addAttribute("fnames", fnames);
+		model.addAttribute("fnames", onames);
 
 		model.addAttribute("map", map);
 		model.addAttribute("list", ar);
