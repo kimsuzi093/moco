@@ -36,8 +36,8 @@ public class AgencyDAO {
 		return sqlSession.selectOne(namespace+"agencyCommitCount", map);
 	}
 	
-	public int agencyUncommitCount(Map<String, Object> map) throws Exception{
-		return sqlSession.selectOne(namespace+"agencyUncommitCount", map);
+	public int agencyUncommitCount() throws Exception{
+		return sqlSession.selectOne(namespace+"agencyUncommitCount");
 	}
 	
 	public AgencyDTO agencyView(int num) throws Exception{

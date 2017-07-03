@@ -7,14 +7,16 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <%@ include file="/resources/part/bootStrap.jspf" %>
 <link rel="styleSheet" type="text/css" href="${pageContext.request.contextPath}/resources/css/section.css">
+<link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet" type="text/css">
+<link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet" type="text/css">
 <title>Home</title>
 <script type="text/javascript">
 $(function(){	
-	var message = '${message}';
+	/* var message = '${message}';
 
 	if(message != ""){
 		alert(message);
-	}
+	} */
 	
 	$(".menu").click(function(){
 		var go = $(this).attr("id");
@@ -24,11 +26,25 @@ $(function(){
 		} else if(go == "right"){
 			location.href="./user/userHome";	//주소를 배우 인덱스로.
 		}
-	})
+	});
 });
 </script>
 
 <style type="text/css">
+.wrap {
+	width: 80%;
+	margin: 20px auto;
+	border: solid red 2px;
+}
+
+.title {
+	text-align: center;
+	font-family: 'Sofia';
+	font-size: 30px;
+	font-weight: bold;
+	color: white;
+}
+
 video{
 	position: fixed;
 	top: 0;
@@ -40,8 +56,15 @@ video{
 	z-index: -1;
 }
 
+.menu_wrap {
+	width: 70%;
+	height: 500px;
+	margin: 0 auto;
+	margin-top: 200px;
+	border: solid blue 2px;
+}
+
 .menu{
-	position: fixed;
 	min-width: 500px;
 	min-height: 500px;
 	width: auto;
@@ -49,86 +72,141 @@ video{
 	opacity : 0.6;
 	border-radius: 1000px;
 	cursor: pointer;
-	margin: 13% auto;
 	z-index: 2;
 }
 
 .center{
 	background-image: url("${pageContext.request.contextPath}/resources/img/start.jpg");
 	background-size: cover;
-	min-width: 600px;
-	min-height: 600px;
-	margin-left: 34%;
+	margin: 0 auto;
 }
 
 .left{
 	background-image: url("${pageContext.request.contextPath}/resources/img/left.jpg");
 	background-size: cover;
-	left: 400px;
+	float: left;
 }
 
 .right{
 	background-image: url("${pageContext.request.contextPath}/resources/img/right.jpg");
 	background-size: cover;
-	right: 400px;
+	float: right;
 }
+
+body {
+	font: 400 15px/1.8 Lato, sans-serif;
+	color: #777;
+}
+
+.container {
+	height: 100%;
+	width: 100%;
+	padding: 80px 120px;
+}
+
+#intro{
+	background-image: url("${pageContext.request.contextPath}/resources/img/intro.jpg");
+	background-size: cover;
+}
+
+#go{
+	background-image: url("${pageContext.request.contextPath}/resources/img/intro.jpg");
+}
+
+/* side-Menu */
+#mySidenav a {
+    position: absolute;
+    left: -80px;
+    transition: 0.3s;
+    padding: 15px;
+    width: 100px;
+    text-decoration: none;
+    font-size: 20px;
+    color: white;
+    border-radius: 0 5px 5px 0;
+    position: fixed;
+    background-color: black;
+    border: solid white 2px;
+}
+
+#mySidenav a:hover {
+    left: 0;
+}
+
+#one {
+    top: 20px;
+}
+
+#two {
+    top: 80px;
+}
+/* side-Menu */
 </style>
-<body>
+<body id="myPage" data-spy="scroll" data-target=".navbar" data-offset="50">
+
+	<div id="mySidenav" class="sidenav">
+		<a href="#intro" id="one">Intro</a>
+		<a href="#go" id="two">Go</a>
+	</div>
+
+	<div id="intro" class="container text-center">
+		<div class="wrap">
+			<h2 class="title">소개하는 글 적기!!!</h2>
+		</div>
+	</div>
 	
-	<video autoplay="autoplay" loop="loop">
-		<source src="${pageContext.request.contextPath}/resources/video/Another_Day_of_Sun.mp4">
-	</video>
+	<div id="go" class="container text-center">
+		<div class="menu_wrap">
+			<c:if test="${memberDTO eq null }">
+				<center>
+					<!-- Trigger the modal with a button -->
+					<button class="menu center" data-toggle="modal" data-target="#myModal">
+						<p>'로그인'을 해주셔야 이용가능합니다.</p>
+					</button>
+				</center>	
+			</c:if>
 	
-	<c:if test="${memberDTO eq null }">
-			<!-- Trigger the modal with a button -->
-			<button class="menu center" data-toggle="modal" data-target="#myModal">
-				<p>'로그인'을 해주셔야 이용가능합니다.</p>
-			</button>
-			
-			<!-- Modal -->
-			<div class="modal fade" id="myModal" role="dialog">
-				<div class="modal-dialog">
-					<!-- Modal content-->
-					<div class="modal-content">
-						<div class="modal-header">
-							<button type="button" class="close" data-dismiss="modal">&times;</button>
-							<h4 class="modal-title">LOGIN</h4>
-						</div>
-
-						<div class="modal-body">
-							<form action="${pageContext.request.contextPath}/member/memberLogin" method="post">
-								<table class="table">
-									<tr>
-										<td>ID <input type="text" class="form-control" name="id"></td>
-									</tr>
-									<tr>
-										<td>PW <input type="password" class="form-control" name="password"></td>
-									</tr>
-								</table>
-
-								<p id="result"></p>
-								<input class="btn btn-success" type="submit" value="LOGIN">
-							</form>
-						</div>
-
-						<div class="modal-footer">
-							<div class="btn-group">
-								<a class="btn btn-primary" href="${pageContext.request.contextPath}/member/memberJoin">JOIN</a>
-								<a class="btn btn-warning" href="${pageContext.request.contextPath}/member/memberSearch?kind=id">ID search</a>
-								<a class="btn btn-warning" href="${pageContext.request.contextPath}/member/memberSearch?kind=password">PW search</a>
-							</div>
+			<c:if test="${memberDTO ne null }">
+				<button class="menu left" id="left"></button>
+				<button class="menu right" id="right"></button>
+			</c:if>
+		</div>
+	
+		<!-- Modal -->
+		<div class="modal fade" id="myModal" role="dialog">
+			<div class="modal-dialog">
+				<!-- Modal content-->
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal">&times;</button>
+						<h4 class="modal-title">LOGIN</h4>
+					</div>
+	
+					<div class="modal-body">
+						<form action="${pageContext.request.contextPath}/member/memberLogin" method="post">
+							<table class="table">
+								<tr>
+									<td>ID <input type="text" class="form-control" name="id"></td>
+								</tr>
+								<tr>
+									<td>PW <input type="password" class="form-control" name="password"></td>
+								</tr>
+							</table>
+	
+							<input class="btn btn-success" type="submit" value="LOGIN">
+						</form>
+					</div>
+	
+					<div class="modal-footer">
+						<div class="btn-group">
+							<a class="btn btn-primary" href="${pageContext.request.contextPath}/member/memberJoin">JOIN</a>
+							<a class="btn btn-warning" href="${pageContext.request.contextPath}/member/memberSearch?kind=id">ID search</a>
+							<a class="btn btn-warning" href="${pageContext.request.contextPath}/member/memberSearch?kind=password">PW search</a>
 						</div>
 					</div>
 				</div>
 			</div>
-		</c:if>
-
-		<c:if test="${memberDTO ne null }">
-			<button class="menu left" id="left"></button>
-			<button class="menu right" id="right"></button>
-		<c:if test="${memberDTO.id eq 'admin'}">
-					
-		</c:if>
-		</c:if>
+		</div>
+	</div>
 </body>
 </html>

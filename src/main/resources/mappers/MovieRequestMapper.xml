@@ -11,4 +11,22 @@
 		(select * from movieRequest order by num desc) M)
 		where R between #{row.startRow} and #{row.lastRow} 
 	</select>
+	<insert id="movieRequestInsert" parameterType="java.util.Map">
+		insert into movierequest 
+		<if test="kind == 'bNum'">
+			values(movierequest_seq.nextval, #{bNum}, 0)
+		</if>
+		<if test="kind == 'lNum'">
+			values(movierequest_seq.nextval, 0, #{lNum})
+		</if>
+	</insert>
+	<select id="movieRequestSelectOne" parameterType="java.util.Map" resultType="com.moco.movieRequest.MovieRequestDTO">
+		select * from movierequest 
+		<if test="kind == 'bNum'">
+			where bNum=#{bNum}
+		</if>
+		<if test="kind == 'lNum'">
+			where lNum=#{lNum}
+		</if>
+	</select>
 </mapper>
