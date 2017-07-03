@@ -128,12 +128,8 @@ video{
 
 			<button class="menu right" id="right"></button>
 			<c:if test="${memberDTO.id eq 'admin'}">
-		
+				123
 			</c:if>
 		</c:if>
-		
-		
-		<p>1</p>
-
 </body>
 </html>
