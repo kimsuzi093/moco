@@ -116,7 +116,7 @@ public class BasicMovieController {
 			testJjim.setId(((MemberDTO)session.getAttribute("memberDTO")).getId());
 			jjimDTO = basicMovieService.jjimCheck(testJjim);
 			review_count = basicMovieService.reviewCount(num);
-			MovieRequestDTO = 
+			/*MovieRequestDTO = */
 		} catch (Exception e) {
 			
 		}
