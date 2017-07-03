@@ -125,15 +125,17 @@ video{
 
 		<c:if test="${memberDTO ne null }">
 			<button class="menu left" id="left"></button>
-
 			<button class="menu right" id="right"></button>
-			<c:if test="${memberDTO.id eq 'admin'}">
-				123
-			</c:if>
+		<c:if test="${memberDTO.id eq 'admin'}">
+					
 		</c:if>
+		</c:if>
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
 
 >>>>>>> c27bac1e097053afb026decb989dd2a4a64156c6
+=======
+>>>>>>> 17dba96ff0bbfa64b622c3b7029418c68e0209e6
 </body>
 </html>
