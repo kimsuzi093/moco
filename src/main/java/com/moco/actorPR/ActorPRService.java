@@ -32,11 +32,11 @@ public class ActorPRService {
 		return actorPRDAO.hitUpdate(check, num);
 	}
 	
-	public String fnameSelect(String name) throws Exception{
+	public String onameSelect(String name) throws Exception{
 		Map<String, Object> map = new HashMap<String, Object>();
 		map.put("name", name);
 		map.put("actor", "배우");
-		return actorPRDAO.fnameSelect(map);
+		return actorPRDAO.onameSelect(map);
 	}
 	
 	public int totalCount(Map<String, Object> map) throws Exception{
