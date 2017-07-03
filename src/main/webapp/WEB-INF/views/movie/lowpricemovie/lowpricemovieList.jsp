@@ -5,15 +5,10 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<!-- Latest compiled and minified CSS -->
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-
-<!-- jQuery library -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-
-<!-- Latest compiled JavaScript -->
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<%@ include file="/resources/part/bootStrap.jspf" %>
+<script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.js"></script>
+<link rel="styleSheet" type="text/css" href="${pageContext.request.contextPath}/resources/css/header.css">
+<link rel="styleSheet" type="text/css" href="${pageContext.request.contextPath}/resources/css/section.css">
 <script type="text/javascript">
 	$(function(){
 		
@@ -52,15 +47,11 @@
 .search{
 		width : 150px;
 }
-span{
-		cursor: pointer;
-		font-weight: bold;
-		font-size: 16px;
-		margin : 0 10px;
-}
 </style>
 </head>
 <body>
+	<%@ include file="/resources/part/header1.jspf" %>
+	<section>
 	<div class="contents-wrap">
 		<div>
 		<!-- title, fname, userRating, *s_date, *e_date -->
@@ -87,7 +78,6 @@ span{
 				<span class="go" id="${pageResult.lastNum+1}">[다음]</span>
 			</c:if>
 		</div>
-		
 
 		<div class="search">
 			<form action="lowpricemovieList">
@@ -104,5 +94,6 @@ span{
 		<input type="button" class="btn btn-info" value="글쓰기" id="write">
 		<input type="button" class="btn btn-success" value="홈으로" id="home">
 	</div>
+	</section>
 </body>
 </html>
