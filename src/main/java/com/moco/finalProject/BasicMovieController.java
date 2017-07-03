@@ -108,16 +108,19 @@ public class BasicMovieController {
 		}
 		BasicMovieDTO basicMovieDTO = new BasicMovieDTO();
 		JjimDTO jjimDTO = null;
+		int review_count = 0;
 		try {
 			basicMovieDTO = basicMovieService.view(num);
 			JjimDTO testJjim = new JjimDTO();
 			testJjim.setbNum(num);
 			testJjim.setId(((MemberDTO)session.getAttribute("memberDTO")).getId());
 			jjimDTO = basicMovieService.jjimCheck(testJjim);
+			review_count = basicMovieService.reviewCount(num);
 		} catch (Exception e) {
 			
 		}
-		model.addAttribute("movieDTO", basicMovieDTO).addAttribute("kind", kind).addAttribute("jjimDTO", jjimDTO);
+		model.addAttribute("movieDTO", basicMovieDTO).addAttribute("kind", kind).addAttribute("jjimDTO", jjimDTO)
+		.addAttribute("review_count", review_count);
 	}
 	// view_story
 	@RequestMapping(value = "movieView_story", method = RequestMethod.GET)

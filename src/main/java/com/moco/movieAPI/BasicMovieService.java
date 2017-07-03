@@ -50,4 +50,8 @@ public class BasicMovieService {
 	public int jjimDelete(JjimDTO jjimDTO) throws Exception{
 		return basicMovieDAO.jjimDelete(jjimDTO);
 	}
+	// 리뷰 참여 명 수
+	public int reviewCount(int bNum) throws Exception{
+		return basicMovieDAO.reviewCount(bNum);
+	}
 }
