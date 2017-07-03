@@ -23,8 +23,9 @@
     <delete id="reviewDelete" parameterType="java.lang.Integer">
     	delete from review where num=#{num}
     </delete>
+    <!-- 좋아요 삭제 -->
     <delete id="reviewDelete2" parameterType="java.lang.Integer">
-    	delete from reviewLikes where rnum=#{rNum}
+    	delete from reviewLike where rnum=#{rNum}
     </delete>
     <select id="reviewTotalCount" parameterType="com.moco.review.ReviewDTO" resultType="java.lang.Integer">
     	select count(num) from review where bnum=#{bNum}
@@ -41,5 +42,15 @@
     </update>
     <update id="lowPriceMovieUserRating" parameterType="com.moco.lowpricemovie.LowPriceMovieDTO">
     	update lowpriceMovie set user_rating=#{user_rating} where num=#{num}
+    </update>
+    <!-- 좋아요 -->
+    <select id="reviewLikesCheck" parameterType="com.moco.review.ReviewLikeDTO" resultType="com.moco.review.ReviewLikeDTO">
+    	select * from reviewLike where id=#{id} and rNum=#{rNum}
+    </select>
+    <insert id="reviewLikesInsert" parameterType="com.moco.review.ReviewLikeDTO">
+    	insert into reviewLike values(#{id}, #{rNum})
+    </insert>
+    <update id="reviewLikesInsert2" parameterType="java.lang.Integer">
+    	update review set likes=likes+1 where num=#{num}
     </update>
 </mapper>

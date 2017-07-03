@@ -6,7 +6,7 @@
 	<!-- viewCheck를 아직 안하였고 로그인 되어있을 때 -->
 	<c:if test="${!viewCheck && memberDTO != null}">
 		<tr>
-			<td colspan="5"><span>${memberDTO.id} 님! 영화를 보셨다면 우측 버튼을 클릭해 주세요! &nbsp;&nbsp;</span><button class="btn" id="viewCheckButton">봤어요!</button></td>
+			<td colspan="7"><span>${memberDTO.id} 님! 영화를 보셨다면 우측 버튼을 클릭해 주세요! &nbsp;&nbsp;</span><button class="btn" id="viewCheckButton">봤어요!</button></td>
 		</tr>
 	</c:if>
 	<!-- viewCheck, 현재 로그인 되어있고, 후기를 안남겼다면 쓰기 가능 -->
@@ -105,11 +105,13 @@
 			<td><input type="text" value="${memberDTO.id}" readonly="readonly" id="reviewWriter"></td>
 			<td><textarea id="reviewContents" style="width: 400px; height: 50px;" placeholder="별점을 남기지 않으실 경우 5점으로 처리 됩니다."></textarea></td>
 			<td><button id="reviewWrite" class="btn">Write</button></td>
+			<td></td>
+			<td></td>
 		</tr>
 	</c:if>
 	<c:if test="${reviewCheck}">
 		<tr>
-			<td colspan="5" style="text-align: center;"><span style="font-size: 1.5em; font-weight: bold;">이미 후기를 작성하셨습니다.</span></td>
+			<td colspan="7" style="text-align: center;"><span style="font-size: 1.5em; font-weight: bold;">이미 후기를 작성하셨습니다.</span></td>
 		</tr>
 	</c:if>
 	<!-- 리뷰가 1개라도 있다면 -->
@@ -217,7 +219,11 @@
 					</td>
 					<td>
 						<textarea rows="" cols="" readonly="readonly" style="width: 400px; height: 50px; border:none;">${review.contents}</textarea>
-					</td>													
+					</td>
+					<td>
+						<button class="reviewLikes btn btn-default" id="${review.num}">좋아요 ${review.likes}</button>
+					</td>									
+					<input type="hidden" id="reviewLikesMessage" value="${message}">
 				</c:if>
 				<c:if test="${review.num == reviewDTO.num}">
 					<td>
@@ -421,7 +427,7 @@
 	<!-- 아직 리뷰가 없다면 -->
 	<c:if test="${totalCount == 0}">
 		<tr>
-			<td colspan="5">아직 작성된 후기가 없습니다. ${memberDTO.id } 님의 소중한 후기를 부탁드립니다! </td>
+			<td colspan="7">아직 작성된 후기가 없습니다. ${memberDTO.id } 님의 소중한 후기를 부탁드립니다! </td>
 		</tr>
 	</c:if>
 </table>
