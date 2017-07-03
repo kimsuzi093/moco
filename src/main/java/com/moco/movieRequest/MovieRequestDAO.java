@@ -18,4 +18,13 @@ public class MovieRequestDAO {
 		return sqlSession.selectList(NAMESPACE+"movieRequestList", map);
 	}
 	
+	// insert
+	public int movieRequestInsert(Map<String, Object> map) throws Exception{
+		return sqlSession.insert(NAMESPACE+"movieRequestInsert", map);
+	}
+	
+	// select
+	public MovieRequestDTO movieRequestSelectOne(Map<String, Object> map) throws Exception{
+		return sqlSession.selectOne(NAMESPACE+"movieRequestSelectOne", map);
+	}
 }

@@ -11,10 +11,20 @@ public class MovieRequestService {
 
 	@Autowired
 	private MovieRequestDAO movieRequestDAO;
-	
+
 	// list
 	public List<MovieRequestDTO> movieRequestList(Map<String, Object> map) throws Exception{
 		return movieRequestDAO.movieRequestList(map);
 	}
-	
+
+	// insert
+	public int movieRequestInsert(Map<String, Object> map) throws Exception{
+		return movieRequestDAO.movieRequestInsert(map);
+	}
+
+	// select
+	public MovieRequestDTO movieRequestSelectOne(Map<String, Object> map) throws Exception{
+		return movieRequestDAO.movieRequestSelectOne(map);
+	}
+
 }

@@ -1,7 +1,5 @@
 package com.moco.finalProject;
 
-import static org.hamcrest.CoreMatchers.nullValue;
-
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -20,6 +18,7 @@ import com.moco.member.MemberDTO;
 import com.moco.movieAPI.BasicMovieDTO;
 import com.moco.movieAPI.BasicMovieService;
 import com.moco.movieAPI.movieSearch.SearchDTO;
+import com.moco.movieRequest.MovieRequestDTO;
 import com.moco.util.PageMaker;
 import com.moco.util.PageResult;
 import com.moco.util.RowMaker;
@@ -109,6 +108,7 @@ public class BasicMovieController {
 		BasicMovieDTO basicMovieDTO = new BasicMovieDTO();
 		JjimDTO jjimDTO = null;
 		int review_count = 0;
+		MovieRequestDTO movieRequestDTO = null;
 		try {
 			basicMovieDTO = basicMovieService.view(num);
 			JjimDTO testJjim = new JjimDTO();
@@ -116,6 +116,7 @@ public class BasicMovieController {
 			testJjim.setId(((MemberDTO)session.getAttribute("memberDTO")).getId());
 			jjimDTO = basicMovieService.jjimCheck(testJjim);
 			review_count = basicMovieService.reviewCount(num);
+			MovieRequestDTO = 
 		} catch (Exception e) {
 			
 		}
