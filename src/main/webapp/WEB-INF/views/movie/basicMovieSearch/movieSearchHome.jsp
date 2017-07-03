@@ -91,7 +91,11 @@
 </head>
 <body>
 <a href="./movieRecommend/recommendHome">RECOMMEND PAGE</a>
-	<h2>MovieSearch</h2>
+	<ul class="nav nav-tabs nav-justified">
+	    <li class="active"><a href="./movieRecommend/recommendHome">영화검색</a></li>
+	    <li><a href="">영화추천</a></li>
+	</ul>
+	
 	<!-- SEARCH -->
 	<div id="searchForm">
 		<table>

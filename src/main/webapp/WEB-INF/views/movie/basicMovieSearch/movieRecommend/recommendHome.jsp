@@ -141,6 +141,10 @@
 </style>
 </head>
 <body>
+	<ul class="nav nav-tabs nav-justified">
+	    <li><a href="">영화검색</a></li>
+	    <li class="active"><a href="">영화추천</a></li>
+	</ul>
 	<div id="recommendCriteria">
 		<button id="genreRecommend" class="btn">장르별 추천영화</button>
 		<button id="yearRecommend" class="btn">년도별 추천영화</button>
