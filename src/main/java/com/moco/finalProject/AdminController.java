@@ -44,6 +44,8 @@ public class AdminController {
 	private AgencyService agencyService;
 	@Inject
 	private MemberService memberService;
+	@Inject
+	private MovieRequestService movieRequestService;
 
 	// index
 	@RequestMapping(value="index" , method=RequestMethod.GET)
