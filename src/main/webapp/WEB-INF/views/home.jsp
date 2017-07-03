@@ -31,16 +31,25 @@ $(function(){
 </script>
 
 <style type="text/css">
-.wrap {
+.title {
 	width: 80%;
 	margin: 20px auto;
 	border: solid red 2px;
-}
-
-.title {
 	text-align: center;
 	font-family: 'Sofia';
 	font-size: 30px;
+	font-weight: bold;
+	color: white;
+}
+
+.contents {
+	width: 80%;
+	height: 500px;
+	margin: 50px auto;
+	border: solid red 2px;
+	text-align: center;
+	font-family: 'Sofia';
+	font-size: 20px;
 	font-weight: bold;
 	color: white;
 }
@@ -60,7 +69,7 @@ video{
 	width: 70%;
 	height: 500px;
 	margin: 0 auto;
-	margin-top: 200px;
+	margin-top: 160px;
 	border: solid blue 2px;
 }
 
@@ -105,12 +114,13 @@ body {
 }
 
 #intro{
-	background-image: url("${pageContext.request.contextPath}/resources/img/intro.jpg");
-	background-size: cover;
+	/* background-image: url("${pageContext.request.contextPath}/resources/img/intro.jpg");
+	background-size: cover; */
+	background-color: pink;
 }
 
 #go{
-	background-image: url("${pageContext.request.contextPath}/resources/img/intro.jpg");
+	background-color: skyblue;
 }
 
 /* side-Menu */
@@ -125,8 +135,6 @@ body {
     color: white;
     border-radius: 0 5px 5px 0;
     position: fixed;
-    background-color: black;
-    border: solid white 2px;
 }
 
 #mySidenav a:hover {
@@ -134,10 +142,12 @@ body {
 }
 
 #one {
+	background-color: red;
     top: 20px;
 }
 
 #two {
+	background-color: blue;
     top: 80px;
 }
 /* side-Menu */
@@ -150,8 +160,12 @@ body {
 	</div>
 
 	<div id="intro" class="container text-center">
-		<div class="wrap">
-			<h2 class="title">소개하는 글 적기!!!</h2>
+		<div class="title">
+			<p>소개하는 글 적기!!!</p>
+		</div>
+		
+		<div class="contents">
+			<p>불라불라</p>
 		</div>
 	</div>
 	

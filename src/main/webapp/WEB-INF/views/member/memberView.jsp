@@ -35,7 +35,7 @@ $(function(){
 	});
 
 	$("#Movie_management").click(function(){
-		location.href="../movieSchedule/movieScheduleList";
+		location.href="../movie/movieSchedule/movieScheduleList";
 	});
 });
 </script>

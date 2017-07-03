@@ -84,7 +84,7 @@
 
 		<c:if test="${memberDTO ne null }">
 			<span>${memberDTO.name} 님</span>
-			<span><a class="btn btn-info" href="${pageContext.request.contextPath}/admin/index">Admin Page</a></span>
+			<span><a class="btn btn-primary" href="${pageContext.request.contextPath}/admin/index">Admin Page</a></span>
 			<span><a class="btn btn-info" href="${pageContext.request.contextPath}/member/memberView">View</a></span>
 			<span><a class="btn btn-warning" href="${pageContext.request.contextPath}/member/memberLogout">Logout</a></span>
 		</c:if>

@@ -1,10 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ include file="./bootstrap.jspf"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<%@ include file="/resources/part/bootStrap.jspf" %>
+<script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.js"></script>
+<link rel="styleSheet" type="text/css" href="${pageContext.request.contextPath}/resources/css/header.css">
+<link rel="styleSheet" type="text/css" href="${pageContext.request.contextPath}/resources/css/section.css">
 <title>Insert title here</title>
 <script type="text/javascript">
 	$(function(){
@@ -88,6 +91,9 @@
 </script>
 </head>
 <body>
+	<%@ include file="/resources/part/header2.jspf" %>
+	<section>
+	
 	<form action="./directorBoardWrite" method="post" enctype="multipart/form-data" name="frm">
 		<p>title <input type="text" name="title" id="title"></p>
 		<p>writer <input type="text" name="writer"></p>
@@ -115,5 +121,6 @@
 		<p>file <input type="file" name="multipartFile" id="file"></p>
 		<input type="button" value="글쓰기" id="submitBtn">
 	</form>
+	</section>
 </body>
 </html>

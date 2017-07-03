@@ -5,7 +5,11 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<%@ include file="/resources/part/bootStrap.jspf" %>
+<script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.js"></script>
+<link rel="styleSheet" type="text/css" href="${pageContext.request.contextPath}/resources/css/header.css">
+<link rel="styleSheet" type="text/css" href="${pageContext.request.contextPath}/resources/css/section.css">
+<title>Insert title here</title>
 <script type="text/javascript">
 	$(function(){
 		var movie_num = $("#movie_num").val();
@@ -38,6 +42,8 @@
 
 </head>
 <body>
+	<%@ include file="/resources/part/header1.jspf" %>
+	<section>
 	<form action="theaterInsert" method="post">
 		영화 제목 : ${lowpricemovie.title }
 		<input type="hidden" id="movie_num" name="movie_num" value="${lowpricemovie.num }"><br>
@@ -64,5 +70,6 @@
 		
 		
 	</form>
+	</section>
 </body>
 </html>
