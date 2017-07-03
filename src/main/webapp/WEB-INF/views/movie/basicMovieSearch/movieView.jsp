@@ -27,6 +27,26 @@
 				});
 		});
 		
+		// reviewLikes
+		$("#reviewResult").on("click",".reviewLikes", function(){
+			var num = $(this).attr("id");
+			var id = '${memberDTO.id}';
+			$.post("../review/reviewLikesInsert",
+				{
+					id : id,
+					rNum : num,
+					curPage : curPage,
+					boardKind : boardKind,
+					boardNum : boardNum
+				},
+				function(data){
+					$("#reviewResult").html(data);
+					if('${message}' != null){
+						alert('${message}');
+					}
+				});
+		});
+		
 		// review-list
 			$.post("../review/reviewList",
 				{

@@ -150,4 +150,26 @@ public class ReviewService {
 		return reviewDAO.lowPriceMovieUserRating(lowPriceMovieDTO);
 	}
 
+	// like
+	// reviewLikesCheck
+	public boolean reviewLikesCheck(ReviewLikeDTO reviewLikeDTO) throws Exception{
+		boolean check = true;
+		// 검사해서 덮어쓰기
+		reviewLikeDTO = reviewDAO.reviewLikesCheck(reviewLikeDTO);
+		// 이미 있다면, false 반환
+		if(reviewLikeDTO != null){
+			check = !check;
+		}
+		return check;
+	}
+	// insert
+	public int reviewLikesInsert(ReviewLikeDTO reviewLikeDTO) throws Exception{
+		int result = 0;
+		// reviewLike Table Insert
+		result = reviewDAO.reviewLikesInsert(reviewLikeDTO);
+		// review Table Update
+		result += reviewDAO.reviewLikesInsert2(reviewLikeDTO.getrNum());
+		return result;
+	}
+
 }

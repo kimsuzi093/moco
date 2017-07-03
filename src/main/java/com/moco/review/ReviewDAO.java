@@ -67,4 +67,17 @@ public class ReviewDAO {
 		return sqlSession.update(NAMESPACE+"lowPriceMovieUserRating", lowPriceMovieDTO);
 	}
 	
+	// reviewLikesCheck
+	public ReviewLikeDTO reviewLikesCheck(ReviewLikeDTO reviewLikeDTO) throws Exception{
+		return sqlSession.selectOne(NAMESPACE+"reviewLikesCheck", reviewLikeDTO);
+	}
+	// reviewLikes Insert
+	public int reviewLikesInsert(ReviewLikeDTO reviewLikeDTO) throws Exception{
+		return sqlSession.insert(NAMESPACE+"reviewLikesInsert", reviewLikeDTO);
+	}
+	// reviewLikesInsert2 
+	public int reviewLikesInsert2(int num) throws Exception{
+		return sqlSession.update(NAMESPACE+"reviewLikesInsert2", num);
+	}
+
 }

@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.moco.member.MemberDTO;
 import com.moco.review.ReviewDTO;
+import com.moco.review.ReviewLikeDTO;
 import com.moco.review.ReviewService;
 import com.moco.util.PageResult;
 import com.moco.viewCheck.ViewCheckDTO;
@@ -51,7 +52,24 @@ public class ReviewController {
 		model.addAttribute("totalCount", reviewService.reviewTotalCount(reviewService.reviewDTOSet(boardKind, boardNum)));
 
 	}
-
+	
+	// likes
+	@RequestMapping(value="reviewLikesInsert", method=RequestMethod.POST)
+	public String reviewLikesInsert(HttpSession session, Model model, String boardKind, int boardNum, Integer curPage, ReviewLikeDTO reviewLikeDTO) throws Exception{
+		// check
+		boolean check = reviewService.reviewLikesCheck(reviewLikeDTO);
+		// insert
+		if(check){
+			reviewService.reviewLikesInsert(reviewLikeDTO);
+		}else{
+			model.addAttribute("message", "'좋아요'는 한번만 누르실 수 있습니다. ");
+		}
+		
+		this.forList(session, curPage, boardKind, boardNum, model);
+		
+		return "movie/review/reviewResult"; 
+	}
+	
 	// viewCheck
 	@RequestMapping(value="viewCheckClick", method=RequestMethod.POST)
 	public String viewCheckClick(HttpSession session, ViewCheckDTO viewCheckDTO, String boardKind, int boardNum, Model model) throws Exception{
