@@ -17,6 +17,10 @@ public class MovieRequestDAO {
 	public List<MovieRequestDTO> movieRequestList(Map<String, Object> map) throws Exception{
 		return sqlSession.selectList(NAMESPACE+"movieRequestList", map);
 	}
+	// movieRequestTotalCount
+	public int movieRequestTotalCount() throws Exception{
+		return sqlSession.selectOne(NAMESPACE+"movieRequestTotalCount");
+	}
 	
 	// insert
 	public int movieRequestInsert(Map<String, Object> map) throws Exception{
