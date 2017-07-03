@@ -15,13 +15,16 @@
     </select>
     <insert id="reviewInsert" parameterType="com.moco.review.ReviewDTO">
     	insert into review values(NVL((select max(num) from review),0)+1, #{writer}, #{contents}, 
-    	#{myRating}, #{bNum}, #{lNum})
+    	#{myRating}, #{bNum}, #{lNum}, 0)
     </insert>
     <update id="reviewUpdate" parameterType="com.moco.review.ReviewDTO">
     	update review set contents=#{contents}, myRating=#{myRating} where num=#{num}
     </update>
     <delete id="reviewDelete" parameterType="java.lang.Integer">
     	delete from review where num=#{num}
+    </delete>
+    <delete id="reviewDelete2" parameterType="java.lang.Integer">
+    	delete from reviewLikes where rnum=#{rNum}
     </delete>
     <select id="reviewTotalCount" parameterType="com.moco.review.ReviewDTO" resultType="java.lang.Integer">
     	select count(num) from review where bnum=#{bNum}

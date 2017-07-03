@@ -8,7 +8,14 @@ public class ReviewDTO {
 	private int myRating;
 	private int bNum;
 	private int lNum;
+	private int likes;
 	
+	public int getLikes() {
+		return likes;
+	}
+	public void setLikes(int likes) {
+		this.likes = likes;
+	}
 	public int getNum() {
 		return num;
 	}
