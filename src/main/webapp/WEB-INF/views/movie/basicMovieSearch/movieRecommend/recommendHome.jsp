@@ -3,8 +3,11 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<%@ include file="../bootstrap.jspf"%>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<%@ include file="/resources/part/bootStrap.jspf" %>
+<script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.js"></script>
+<link rel="styleSheet" type="text/css" href="${pageContext.request.contextPath}/resources/css/header.css">
+<link rel="styleSheet" type="text/css" href="${pageContext.request.contextPath}/resources/css/section.css">
 <title>Insert title here</title>
 <script type="text/javascript">
 	$(function(){
@@ -141,6 +144,8 @@
 </style>
 </head>
 <body>
+	<%@ include file="/resources/part/header1.jspf" %>
+	<section>
 	<div id="recommendCriteria">
 		<button id="genreRecommend" class="btn">장르별 추천영화</button>
 		<button id="yearRecommend" class="btn">년도별 추천영화</button>
@@ -197,5 +202,6 @@
 		</div>
 	</div>
 	<div id="recommendResult"></div>
+	</section>
 </body>
 </html>

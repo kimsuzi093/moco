@@ -5,13 +5,11 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<%@ include file="/resources/part/bootStrap.jspf" %>
+<script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.js"></script>
+<link rel="styleSheet" type="text/css" href="${pageContext.request.contextPath}/resources/css/header.css">
+<link rel="styleSheet" type="text/css" href="${pageContext.request.contextPath}/resources/css/section.css">
 <title>Insert title here</title>
-<!-- Latest compiled and minified CSS -->
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-<!-- jQuery library -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<!-- Latest compiled JavaScript -->
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <style type="text/css">
 #replyContentsView, #replyWriterView{
 	border:none;
@@ -148,28 +146,31 @@
 </style>
 </head>
 <body>
-	<div class="contents-wrap">
-	<h2>ActorPR VIEW</h2>
-	<h2>TITLE : ${dto.title }</h2>
-	<h2>WRITER : ${dto.writer }</h2>
-	<h2>CONTENTS : ${dto.contents }</h2>
-	<h2>DATE : ${dto.reg_date }</h2>
-	<h2>HIT : ${dto.hit }</h2>
-	<h2>VIDEO : </h2>
-	<p><video width="500" controls>
-		<source src="../../resources/upload/actorPR/${dto.fname }" type="video/mp4">
-	</video></p>
+	<%@ include file="/resources/part/header2.jspf" %>
+	<section>
+		<div class="contents-wrap">
+		<h2>ActorPR VIEW</h2>
+		<h2>TITLE : ${dto.title }</h2>
+		<h2>WRITER : ${dto.writer }</h2>
+		<h2>CONTENTS : ${dto.contents }</h2>
+		<h2>DATE : ${dto.reg_date }</h2>
+		<h2>HIT : ${dto.hit }</h2>
+		<h2>VIDEO : </h2>
+		<p><video width="500" controls>
+			<source src="../../resources/upload/actorPR/${dto.fname }" type="video/mp4">
+		</video></p>
+		
+		<c:if test="${memberDTO.name eq dto.writer}">
+			<a href="./actorPRUpdate?num=${dto.num }"><button>UPDATE</button></a>
+			<a href="./actorPRDelete?num=${dto.num }"><button>DELETE</button></a>
+		</c:if>
+		<a href="./actorPRList"><button>LIST</button></a>
 	
-	<c:if test="${memberDTO.name eq dto.writer}">
-		<a href="./actorPRUpdate?num=${dto.num }"><button>UPDATE</button></a>
-		<a href="./actorPRDelete?num=${dto.num }"><button>DELETE</button></a>
-	</c:if>
-	<a href="./actorPRList"><button>LIST</button></a>
-
-<!-- 댓글 -->
-<input type="hidden" id="boardKind" value="actorPR">
-<input type="hidden" id="boardNum" value="${dto.num}">
-<div id="replyResult"></div>
-</div>
+		<!-- 댓글 -->
+		<input type="hidden" id="boardKind" value="actorPR">
+		<input type="hidden" id="boardNum" value="${dto.num}">
+		<div id="replyResult"></div>
+		</div>
+	</section>
 </body>
 </html>

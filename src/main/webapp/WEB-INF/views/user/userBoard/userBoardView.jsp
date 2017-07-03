@@ -5,11 +5,11 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
+<%@ include file="/resources/part/bootStrap.jspf" %>
+<script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.js"></script>
+<link rel="styleSheet" type="text/css" href="${pageContext.request.contextPath}/resources/css/header.css">
+<link rel="styleSheet" type="text/css" href="${pageContext.request.contextPath}/resources/css/section.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script type="text/javascript">
 	$(function() {
 		// viewPage로 접근 한 user가 이 게시물에 '좋아요'를 눌렀는지 먼저 판단
@@ -181,7 +181,10 @@
 </style>
 </head>
 <body>
-<div  class="container">
+	
+	<%@ include file="/resources/part/header2.jspf" %>
+	<section>
+<div class="container">
 	<h2>UserBoardView</h2>
 	<table>
 		<tr>
@@ -233,5 +236,6 @@
 	<div id="replyResult" class="container"></div>
 	
 </div>
+	</section>
 </body>
 </html>
