@@ -100,7 +100,11 @@ public class ReviewService {
 	}
 	// reviewDelete
 	public int reviewDelete(int num) throws Exception{
-		return reviewDAO.reviewDelete(num);
+		// review 삭제
+		int result = reviewDAO.reviewDelete(num);
+		// 좋아요 삭제
+		result += reviewDAO.reviewDelete2(num);
+		return result;
 	}
 	// reviewTotalCount
 	public int reviewTotalCount(ReviewDTO reviewDTO) throws Exception{

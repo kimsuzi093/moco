@@ -41,6 +41,10 @@ public class ReviewDAO {
 	public int reviewDelete(int num) throws Exception{
 		return sqlSession.delete(NAMESPACE+"reviewDelete", num);
 	}
+	// reviewDelete2
+	public int reviewDelete2(int num) throws Exception{
+		return sqlSession.delete(NAMESPACE+"reviewDelete2", num);
+	}
 	// reviewTotalCount
 	public int reviewTotalCount(ReviewDTO reviewDTO) throws Exception{
 		return sqlSession.selectOne(NAMESPACE+"reviewTotalCount", reviewDTO);

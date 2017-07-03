@@ -131,5 +131,9 @@ video{
 				123
 			</c:if>
 		</c:if>
+<<<<<<< HEAD
+=======
+
+>>>>>>> c27bac1e097053afb026decb989dd2a4a64156c6
 </body>
 </html>
