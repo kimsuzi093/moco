@@ -53,5 +53,4 @@ public class HomeController {
 	public void movieHome(){
 		
 	}
-	
 }

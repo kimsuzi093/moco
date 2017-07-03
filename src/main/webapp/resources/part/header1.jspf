@@ -37,7 +37,7 @@
 		</li>
 		
 		<li class="dropdown">
-			<a href="#">click</a>
+			<a href="${pageContext.request.contextPath}/movie/basicMovieSearch/movieSearchHome">BasicMovieSearch</a>
 			<div class="dropdown-content">
 				<a href="#">Link 1</a>
 				<a href="#">Link 2</a>
@@ -46,7 +46,16 @@
 		</li>
 		
 		<li class="dropdown">
-			<a href="${pageContext.request.contextPath}/movieSchedule/movieScheduleTable">Movie Schedule</a>
+			<a href="${pageContext.request.contextPath}/movie/lowpricemovie/lowpricemovieList">BasicMovieSearch</a>
+			<div class="dropdown-content">
+				<a href="#">Link 1</a>
+				<a href="#">Link 2</a>
+				<a href="#">Link 3</a>
+  			</div>
+		</li>
+		
+		<li class="dropdown">
+			<a href="${pageContext.request.contextPath}/movie/movieSchedule/movieScheduleTable">Movie Schedule</a>
 			<div class="dropdown-content">
 				<a href="#">Link 1</a>
 				<a href="#">Link 2</a>
