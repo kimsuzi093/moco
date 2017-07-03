@@ -63,11 +63,12 @@
 		<!-- <button id="uncommitBtn">UNCOMMIT LIST</button> -->
 		<div id="uncommitAjax">
 		<table class="table table-hover">
-		<th>num</th>
-		<th>title</th>
-		<th>director</th>
-		<th>pubdate</th>
-		
+		<tr>
+			<th>num</th>
+			<th>title</th>
+			<th>director</th>
+			<th>pubdate</th>
+		</tr>
 		<c:forEach items="${list2 }" var="dto">
 			<tr>
 			<td>${dto.num }</td>
@@ -102,11 +103,12 @@
 		<!-- <button id="commitBtn">COMMIT LIST</button> -->
 		<div id="commitAjax">
 		<table class="table table-hover">
-			<th>num</th>
-			<th>title</th>
-			<th>director</th>
-			<th>pubdate</th>
-			
+			<tr>
+				<th>num</th>
+				<th>title</th>
+				<th>director</th>
+				<th>pubdate</th>
+			</tr>
 			<c:forEach items="${list1 }" var="dto">
 			<tr>
 				<td>${dto.num }</td>
