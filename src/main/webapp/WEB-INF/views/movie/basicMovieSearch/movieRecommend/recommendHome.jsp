@@ -144,7 +144,6 @@
 	<div id="recommendCriteria">
 		<button id="genreRecommend" class="btn">장르별 추천영화</button>
 		<button id="yearRecommend" class="btn">년도별 추천영화</button>
-		<button id="direcotrRecommend" class="btn">감독별 추천영화</button>
 		<button id="ageRecommend" class="btn">나이별 추천영화</button>
 		<button id="weatherRecommend" class="btn">오늘날씨 추천영화</button>
 		<button id="groupRecommend" class="btn">커플끼리,가족끼리,혼자</button>

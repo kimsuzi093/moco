@@ -355,7 +355,7 @@
 			<span class="star-rating">
 				<span style="width: ${movieDTO.user_rating*10}%"></span>
 			</span>
-			<span>${movieDTO.user_rating }/10 (-명 참여)</span>
+			<span>${movieDTO.user_rating }/10 (${review_count }명 참여)</span>
 			<p><strong>개요</strong> ${movieDTO.genre } | ${movieDTO.nation } | ${movieDTO.play_time } | ${movieDTO.pub_date }개봉</p>
 			<p><strong>감독</strong> ${movieDTO.director }</p>
 			<p><strong>주연</strong> ${movieDTO.actor }</p>

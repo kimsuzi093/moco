@@ -52,4 +52,8 @@ public class BasicMovieDAO {
 	public int jjimDelete(JjimDTO jjimDTO) throws Exception{
 		return sqlSession.delete(MAPPER_NAME+"jjimDelete", jjimDTO);
 	}
+	// 리뷰 참여 명 수
+	public int reviewCount(int bNum) throws Exception{
+		return sqlSession.selectOne(MAPPER_NAME+"reviewCount", bNum);
+	}
 }
