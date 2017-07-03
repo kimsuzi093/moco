@@ -43,4 +43,21 @@ public class LowPriceMovieDAO {
 		return sqlSession.selectOne(NAMESPACE+"view", num);
 	}
 	
+	//DELETE
+	public int delete(int num) throws Exception{
+		return sqlSession.delete(NAMESPACE+"delete", num);
+	}
+	
+	//insert
+	public int insert(LowPriceMovieDTO lowPriceMovieDTO) throws Exception{
+		return sqlSession.insert(NAMESPACE+"insert", lowPriceMovieDTO);
+	}
+	
+	//update
+	public int update(LowPriceMovieDTO lowPriceMovieDTO) throws Exception{
+		System.out.println(lowPriceMovieDTO.getNum());
+		System.out.println(lowPriceMovieDTO.getPub_date());
+		System.out.println(lowPriceMovieDTO.getWatching_rate());
+		return sqlSession.update(NAMESPACE+"update", lowPriceMovieDTO);
+	}
 }

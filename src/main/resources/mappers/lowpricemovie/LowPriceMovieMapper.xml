@@ -26,4 +26,16 @@
 	<select id="view" parameterType="java.lang.Integer" resultType="com.moco.lowpricemovie.LowPriceMovieDTO">
 		select * from lowpricemovie where num=#{num}
 	</select>
+	
+	<delete id="delete" parameterType="java.lang.Integer">
+		delete lowpricemovie where num=#{num}
+	</delete>
+	
+	<insert id="insert" parameterType="com.moco.lowpricemovie.LowPriceMovieDTO">
+		insert into lowpricemovie values(NVL((select max(num) from lowpricemovie), 0)+1, #{title}, #{eng_title}, #{genre}, #{director}, #{actor}, #{year}, #{nation}, #{trailer}, #{pub_date}, #{watching_rate}, #{play_time}, #{story}, #{thumnail}, #{keyword}, #{user_rating})
+	</insert>
+	
+	<update id="update" parameterType="com.moco.lowpricemovie.LowPriceMovieDTO">
+		update lowpricemovie set pub_date=#{pub_date}, watching_rate=#{watching_rate} where num=#{num}
+	</update>
 </mapper>

@@ -6,12 +6,17 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.multipart.MultipartFile;
 
+import com.moco.fileTest.FileSaver;
+import com.moco.lowpricemovie.LowPriceMovieDAO;
 import com.moco.lowpricemovie.LowPriceMovieDTO;
 import com.moco.lowpricemovie.LowPriceMovieService;
 import com.moco.multiplex.MultiplexDTO;
@@ -60,6 +65,50 @@ public class LowPriceMovieController {
 		model.addAttribute("lowpricemovie", lowPriceMovieDTO);
 	/*	model.addAttribute("screen", map.get("screen"));*/
 		return "movie/lowpricemovie/lowpricemovieView";
+	}
+	
+	//MOVIE DELETE
+	
+	@RequestMapping(value="lowpricemovieDelete", method=RequestMethod.GET)
+	public String delete(int num) throws Exception{
+		int result = lowPriceMovieService.delete(num);
+		
+		return "redirect:/movie/lowpricemovie/lowpricemovieList";
+	}
+	
+	//movie write
+	
+	@RequestMapping(value="lowpricemovieInsert", method=RequestMethod.GET)
+	public String write(Model model) throws Exception{
+		model.addAttribute("state", "Insert");
+		return "/movie/lowpricemovie/lowpricemovieWrite";
+	}
+	
+	@RequestMapping(value="lowpricemovieInsert", method=RequestMethod.POST)
+	public String insert(LowPriceMovieDTO lowPriceMovieDTO, MultipartFile f1, HttpSession session, Model model) throws Exception{
+		String path = session.getServletContext().getRealPath("resources/upload/lowpricemovie");
+		
+		FileSaver fileSaver = new FileSaver();
+	
+		lowPriceMovieDTO.setThumnail(fileSaver.saver(f1, path));
+	
+		int result = lowPriceMovieService.insert(lowPriceMovieDTO);
+		return "redirect:/movie/lowpricemovie/lowpricemovieList";
+	}
+	@RequestMapping(value="lowpricemovieUpdate", method=RequestMethod.GET)
+	public String update(int num, Model model) throws Exception{
+		LowPriceMovieDTO lowPriceMovieDTO = lowPriceMovieService.view(num);
+		model.addAttribute("lowpricemovie", lowPriceMovieDTO);
+		model.addAttribute("state", "Update");
+		return "movie/lowpricemovie/lowpricemovieWrite";
+	}
+	
+	@RequestMapping(value="lowpricemovieUpdate", method=RequestMethod.POST)
+	public String update(LowPriceMovieDTO lowPriceMovieDTO, Model model) throws Exception{
+		
+		int result = lowPriceMovieService.update(lowPriceMovieDTO);
+		System.out.println(result);
+		return "redirect:/movie/lowpricemovie/lowpricemovieList";
 	}
 	
 	@RequestMapping(value="multiplexList_ajax", method=RequestMethod.POST)
@@ -116,6 +165,7 @@ public class LowPriceMovieController {
 		
 		return "redirect:/";
 	}
+	
 	
 	
 	

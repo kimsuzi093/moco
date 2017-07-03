@@ -22,7 +22,7 @@
 	<div id="contents_wrap">
 		<div>
 			<div id="d1">
-				<img alt="MOVIE_IMG" src="${lowpricemovie.thumnail }"> 
+				<img alt="MOVIE_IMG" src="<!-- ../../resources/upload/lowpricemovie/ -->${lowpricemovie.thumnail }"> 
 			</div>
 			<div>
 				<div>
@@ -52,9 +52,9 @@
 	
 	
 	<%-- <h4>S_DATE - E_DATE : ${screen.s_date} - ${screen.e_date}</h4> --%>
-	<a href="list">LIST</a>
-	<a href="delete?num=${lowpricemovie.num}">DELETE</a>
-	<a href="update?num=${lowpricemovie.num}">UPDATE</a>
+	<a href="lowpricemovieList">LIST</a>
+	<a href="lowpricemovieDelete?num=${lowpricemovie.num}">DELETE</a>
+	<a href="lowpricemovieUpdate?num=${lowpricemovie.num}">UPDATE</a>
 	
 </body>
 </html>
