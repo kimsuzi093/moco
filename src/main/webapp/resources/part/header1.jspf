@@ -32,8 +32,11 @@
 <nav class="navbar navbar-inverse" data-spy="affix" data-offset-top="197">
 	<ul class="nav navbar-nav">
 
-		<li class="switch1">
-			<a style="color: white !important" href="${pageContext.request.contextPath}">Home</a>
+		<li class="switch1 dropdown">
+			<a style="color: white !important" href="${pageContext.request.contextPath}/movie/movieHome">Main</a>
+			<div class="dropdown-content">
+				<a style="color: white !important" href="${pageContext.request.contextPath}">Home</a>
+  			</div>
 		</li>
 		
 		<li class="dropdown">

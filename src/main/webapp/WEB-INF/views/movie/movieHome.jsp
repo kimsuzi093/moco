@@ -9,14 +9,46 @@
 <link rel="styleSheet" type="text/css" href="${pageContext.request.contextPath}/resources/css/header.css">
 <link rel="styleSheet" type="text/css" href="${pageContext.request.contextPath}/resources/css/section.css">
 <title>Insert title here</title>
+<style type="text/css">
+.img {
+	width: 100%;
+	height: 600px;
+	border: solid blue 2px;
+	margin: 0 auto;
+	margin-top: -50px;
+	font-size: 30px;
+	font-weight: bold;
+}
+
+.sub {
+	width: 45%;
+	height: 400px;
+	margin: 20px 0;
+	font-size: 30px;
+	font-weight: bold;
+}
+
+.left{
+	margin-left: 4%;
+	border: solid red 2px;
+	float: left;
+}
+
+.right {
+	margin-right: 4%;
+	border: solid green 2px;
+	float: right;
+}
+</style>
 </head>
 <body>
 	<%@ include file="/resources/part/header1.jspf" %>
 	<section>
-		<h2>movieHome</h2>
-		<p><a href="./basicMovieSearch/movieSearchHome">basicMovieSearch</a></p>
-		<p><a href="./lowpricemovie/lowpricemovieList">lowpricemovieList</a></p>
-		<p><a href="./movieSchedule/movieScheduleTable">movieSchedule</a></p>
+		<div class="img">이미지 슬라이드</div>
+		<div class="sub left">sub1</div>
+		<div class="sub right">sub2</div>
+		<div class="sub left">sub3</div>
+		<div class="sub right">sub4</div>
 	</section>
 </body>
 </html>
