@@ -157,7 +157,7 @@
 		<h2>HIT : ${dto.hit }</h2>
 		<h2>VIDEO : </h2>
 		<p><video width="500" controls>
-			<source src="../../resources/upload/actorPR/${dto.fname }" type="video/mp4">
+			<source src="../../resources/upload/actorPR/${dto.oname }" type="video/mp4">
 		</video></p>
 		
 		<c:if test="${memberDTO.name eq dto.writer}">
