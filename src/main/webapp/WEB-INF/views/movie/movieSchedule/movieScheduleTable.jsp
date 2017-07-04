@@ -12,19 +12,19 @@
 
 <style type="text/css">
 .wrap {
-   width: 1200px;
+   width: 1000px;
    margin: 0px auto;
 }
 
 .btn-holder {
-   height: 100px;
+   height: 50px;
    text-align: center;
    font-size: 30px;
    margin: 10px 0 10px 0;
 }
 
 #calendar table {
-   width: 1200px;
+   width: 1000px;
    border-collapse: collapse;
    text-align: center;
    border: solid black 2px;
@@ -213,29 +213,18 @@
 </head>
 
 <body>
-	<%@ include file="/resources/part/header1.jspf" %>
-
-	<section>
 
 	<div class="wrap">
+		<h2>이 달의 상영영화</h2>
 		<div class="btn-holder">
-			<button id="btnPrev">&lt;</button>
+			<button class="btn" id="btnPrev">&lt;</button>
 			<span id="currentDate"></span>
-			<button id="btnNext">&gt;</button>
+			<button class="btn" id="btnNext">&gt;</button>
 		</div>
 		<div id="calendar"></div>
 	</div>
-	
+
 	<br>
-	
-	<div class="wrap">
-		<input type="button" class="btn" id="home" value="HOME">
-		<input type="button" class="btn btn-success" id="back" value="BACK">
-		<input type="button" class="btn btn-warning" id="refreash" value="REFREASH">
-	</div>
-	</section>
-	
-	
-	<%-- <%@ include file="/resources/part/footer.jspf" %> --%>
+
 </body>
 </html>
