@@ -5,6 +5,22 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.js"></script>
+<script type="text/javascript">
+	$(function(){
+		$('.screenAdd').click(function(){
+			var num = $(this).attr('id');
+			num = num.substring(1);
+			
+			$.post('screen_ajax', {multi_num:num}, function(data){
+				
+			});
+			
+			
+		});
+		
+	});
+</script>
 <title>Insert title here</title>
 </head>
 <body>
@@ -16,7 +32,8 @@
 	<p>문의전화 : ${theater.phone }</p>
 	
 	<c:forEach items="${multiplexList }" var="list">
-	<p>${list. name}</p>
+	
+		<p><span id="s${list.num}" class="screenAdd">${list.name }</span></p>
 	</c:forEach>
 </body>
 </html>

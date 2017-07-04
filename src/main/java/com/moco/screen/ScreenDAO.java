@@ -15,4 +15,8 @@ public class ScreenDAO {
 	public int insert(ScreenDTO screenDTO) throws Exception {
 		return sqlSession.insert(NAMESPACE+"insert", screenDTO);
 	}
+	
+	public List<ScreenDTO> list(int multi_num) throws Exception{
+		return sqlSession.selectList(NAMESPACE+"list", multi_num);
+	}
 }

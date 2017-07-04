@@ -204,8 +204,9 @@ public class LowPriceMovieService {
 
 		return str;
 	}
-	
-	
+	public List<ScreenDTO> screenList(int multi_num) throws Exception{
+		return screenDAO.list(multi_num);
+	}
 	
 	
 	// 찜하기 확인

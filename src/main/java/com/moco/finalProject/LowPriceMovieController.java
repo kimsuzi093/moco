@@ -19,6 +19,7 @@ import com.moco.lowpricemovie.LowPriceMovieDTO;
 import com.moco.lowpricemovie.LowPriceMovieService;
 import com.moco.member.MemberDTO;
 import com.moco.multiplex.MultiplexDTO;
+import com.moco.screen.ScreenDTO;
 import com.moco.theater.TheaterDTO;
 
 @Controller
@@ -217,11 +218,19 @@ public class LowPriceMovieController {
 	public String theaterView(int num, Model model) throws Exception{
 		TheaterDTO theaterDTO = lowPriceMovieService.theaterView(num);
 		List<MultiplexDTO> ar = lowPriceMovieService.multiplexList(num);
+		
 		model.addAttribute("theater", theaterDTO);
 		model.addAttribute("multiplexList", ar);
 		return "movie/lowpricemovie/theaterView";
 	}
-	
+	@RequestMapping(value="screen_ajax", method=RequestMethod.POST)
+	public void screenAdd(int multi_num, Model model) throws Exception{
+		List<ScreenDTO> ar = lowPriceMovieService.screenList(multi_num);
+		int lNum = ar.get(0).getMovie_num();
+
+		model.addAttribute("screen", ar);
+		model.addAttribute("lowpricemovie", lowPriceMovieService.view(lNum));
+	}
 	/*
 	//상영관 수정(관리자)
 	@RequestMapping(value="theaterUpdate", method=RequestMethod.GET)
