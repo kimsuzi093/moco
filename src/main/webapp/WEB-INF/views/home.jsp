@@ -7,8 +7,6 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <%@ include file="/resources/part/bootStrap.jspf" %>
 <link rel="styleSheet" type="text/css" href="${pageContext.request.contextPath}/resources/css/section.css">
-<link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet" type="text/css">
-<link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet" type="text/css">
 <title>Home</title>
 <script type="text/javascript">
 $(function(){	
@@ -23,6 +21,7 @@ $(function(){
 		
 		if(go == "left"){
 			location.href="./movie/movieHome";	//주소를 영화 인덱스로
+			window.open("${pageContext.request.contextPath}/movie/movieSchedule/movieScheduleTable", "actity", "width=1200, height=800, left=300, top=100");
 		} else if(go == "right"){
 			location.href="./user/userHome";	//주소를 배우 인덱스로.
 		}
@@ -161,7 +160,7 @@ body {
 
 	<div id="intro" class="container text-center">
 		<div class="title">
-			<p>소개하는 글 적기!!!뿡뿡~~~~</p>
+			<p>asd</p>
 		</div>
 		
 		<div class="contents">
