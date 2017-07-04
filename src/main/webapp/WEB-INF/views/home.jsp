@@ -10,11 +10,11 @@
 <title>Home</title>
 <script type="text/javascript">
 $(function(){	
-	/* var message = '${message}';
+	var message = '${message}';
 
 	if(message != ""){
 		alert(message);
-	} */
+	}
 	
 	$(".menu").click(function(){
 		var go = $(this).attr("id");
@@ -25,6 +25,18 @@ $(function(){
 		} else if(go == "right"){
 			location.href="./user/userHome";	//주소를 배우 인덱스로.
 		}
+	});
+	
+	$("#join").click(function(){
+		window.open("${pageContext.request.contextPath}/member/memberJoin", "actity", "width=1200, height=800, left=300, top=100");
+	});
+	
+	$("#search_id").click(function(){
+		window.open("${pageContext.request.contextPath}/member/memberSearch?kind=id", "actity", "width=1200, height=800, left=300, top=100");
+	});
+	
+	$("#search_pw").click(function(){
+		window.open("${pageContext.request.contextPath}/member/memberSearch?kind=password", "actity", "width=1200, height=800, left=300, top=100");
 	});
 });
 </script>
@@ -212,9 +224,9 @@ body {
 	
 					<div class="modal-footer">
 						<div class="btn-group">
-							<a class="btn btn-primary" href="${pageContext.request.contextPath}/member/memberJoin">JOIN</a>
-							<a class="btn btn-warning" href="${pageContext.request.contextPath}/member/memberSearch?kind=id">ID search</a>
-							<a class="btn btn-warning" href="${pageContext.request.contextPath}/member/memberSearch?kind=password">PW search</a>
+							<button class="btn btn-primary" id="join">JOIN</button>
+							<button class="btn btn-warning" id="search_id">ID search</button>
+							<button class="btn btn-warning" id="search_pw">PW search</button>
 						</div>
 					</div>
 				</div>

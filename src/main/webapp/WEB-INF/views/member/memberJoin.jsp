@@ -7,6 +7,7 @@
 <%@ include file="/resources/part/bootStrap.jspf" %>
 <link rel="styleSheet" type="text/css" href="${pageContext.request.contextPath}/resources/css/header.css">
 <link rel="styleSheet" type="text/css" href="${pageContext.request.contextPath}/resources/css/section.css">
+<link rel="styleSheet" type="text/css" href="${pageContext.request.contextPath}/resources/css/member.css">
 <title>Insert title here</title>
 
 <%-- <script type="text/javascript" src="${pageContext.request.contextPath}/resources/script/join.js"></script> --%>
@@ -128,36 +129,11 @@ $(function() {
 			alert("이메일을 다시 확인해주세요");
 		} else {
 			document.frm.submit("memberJoin");
+			window.close();
 		}
 	})
 });
 </script>
-
-<style type="text/css">
-.join {
- 	width: 800px;
- 	margin: 20px auto;
-}
-
-tr {
-	height: 50px;
-}
-
-td.name {
-	width: 200px;
-	text-align: center;
-}
-
-td.push {
-	width: 300px;
-}
-
-td.result {
-	width: 300px;
-	font-size: 0.9em;
-	vertical-align: middle;
-}
-</style>
 
 </head>
 <body>
@@ -165,9 +141,10 @@ td.result {
 
 	<section>
 		<div class="container">
-			<h2 style="text-align: center;">Member Join</h2>
+			<h2 class="title">Member Join</h2>
+
 			<form action="memberJoin" name="frm" id="frm" method="POST" enctype="multipart/form-data">
-				<table class="join">
+				<table class="member_Table">
 					<tr>
 						<td class="name">*ID:</td>
 						<td class="push"><input type="text" class="form-control" name="id" id="id" required="required"></td>
@@ -242,7 +219,7 @@ td.result {
 					</tr>
 					
 					<tr>
-						<td class="name" colspan="3"><input type="button" id="btn" class="btn btn-success" style="width: 100%;" value="가입"></td>
+						<td class="name" colspan="2"><input type="button" id="btn" class="btn btn-success" style="width: 100%;" value="가입"></td>
 					</tr>
 				</table>
 		

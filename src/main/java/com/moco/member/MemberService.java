@@ -80,10 +80,10 @@ public class MemberService {
 		return memberDAO.managementUpdate(memberDTO);
 	}
 	
-	public String memberSearchID(String name, String select, String search) throws Exception{
+	public String memberSearchID(String name, String email) throws Exception{
 		System.out.println("-- MemberService -> SearchID");
 		
-		return memberDAO.memberSearchID(name, select, search);
+		return memberDAO.memberSearchID(name, email);
 	}
 	
 	public String memberQuestionCheck(String id) throws Exception{

@@ -213,7 +213,6 @@
 </head>
 
 <body>
-
 	<div class="wrap">
 		<h2>이 달의 상영영화</h2>
 		<div class="btn-holder">
@@ -223,8 +222,5 @@
 		</div>
 		<div id="calendar"></div>
 	</div>
-
-	<br>
-
 </body>
 </html>

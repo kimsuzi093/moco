@@ -111,14 +111,13 @@ public class MemberDAO {
 		return result;
 	}
 	
-	public String memberSearchID(String name, String select, String search){
+	public String memberSearchID(String name, String email){
 		System.out.println("--- MemberDAO -> SearchID");
 		
 		Map<String, String> map = new HashMap<String, String>();
 
 		map.put("name", name);
-		map.put("select", select);
-		map.put("search", search);
+		map.put("email", email);
 		
 		return sqlSession.selectOne(namespace+"memberSearchID", map);
 	}

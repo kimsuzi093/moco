@@ -82,7 +82,9 @@ public class MemberController {
 		
 		try {
 			memberDTO = memberService.memberLogin(memberDTO);
-			permission = memberService.memberPermission(memberDTO.getId());
+			if(memberDTO != null){
+				permission = memberService.memberPermission(memberDTO.getId());
+			}
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -95,10 +97,10 @@ public class MemberController {
 			redirectAttributes.addFlashAttribute("message", message);
 			
 			
-		} else{
+		} else {
 			message = "아이디/비밀번호를 확인하세요.";
 			
-			if(!permission.equals("승인")){
+			if(memberDTO != null && !permission.equals("승인")){
 					System.out.println("현재 상태 : "+permission);
 					message = "승인을 기다리고 있습니다.";
 					redirectAttributes.addFlashAttribute("message", message);
@@ -257,17 +259,17 @@ public class MemberController {
 	}
 	
 	@RequestMapping(value="memberSearch", method=RequestMethod.GET)
-	public void memberSearchID(String kind, Model model){
+	public void memberSearch(String kind, Model model){
 		model.addAttribute("kind", kind);
 	}
 
 	//아이디 찾기
 	@RequestMapping(value="memberSearchID", method=RequestMethod.POST)
-	public String memberSearchID(String name, String select, String search, RedirectAttributes redirectAttributes){
+	public String memberSearchID(String name, String email, RedirectAttributes redirectAttributes){
 		String message = "";
 		
 		try {
-			message = memberService.memberSearchID(name, select, search);
+			message = memberService.memberSearchID(name, email);
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
