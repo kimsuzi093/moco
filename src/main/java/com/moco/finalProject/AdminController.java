@@ -20,11 +20,8 @@ import com.moco.agency.AgencyService;
 import com.moco.fileTest.FileSaver;
 import com.moco.member.MemberDTO;
 import com.moco.member.MemberService;
-<<<<<<< HEAD
 import com.moco.movieAPI.BasicMovieDTO;
 import com.moco.movieRequest.MovieRequestDTO;
-=======
->>>>>>> a5d40aa9c0235d10f73320aa88e965e480d8e500
 import com.moco.movieRequest.MovieRequestService;
 import com.moco.paidMovie.PaidMovieDTO;
 import com.moco.paidMovie.PaidMovieService;
