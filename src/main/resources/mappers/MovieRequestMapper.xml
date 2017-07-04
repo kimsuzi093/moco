@@ -20,22 +20,23 @@
 	<select id="movieRequestTotalCount" resultType="java.lang.Integer">
 		select count(num) from movieRequest
 	</select>
+	<!-- SUZI -->
 	<insert id="movieRequestInsert" parameterType="java.util.Map">
 		insert into movierequest 
 		<if test="kind == 'bNum'">
-			values(movierequest_seq.nextval, #{bNum}, 0)
+			values(movierequest_seq.nextval, #{num}, 0)
 		</if>
 		<if test="kind == 'lNum'">
-			values(movierequest_seq.nextval, 0, #{lNum})
+			values(movierequest_seq.nextval, 0, #{num})
 		</if>
 	</insert>
 	<select id="movieRequestSelectOne" parameterType="java.util.Map" resultType="com.moco.movieRequest.MovieRequestDTO">
 		select * from movierequest 
 		<if test="kind == 'bNum'">
-			where bNum=#{bNum}
+			where bNum=#{num}
 		</if>
 		<if test="kind == 'lNum'">
-			where lNum=#{lNum}
+			where lNum=#{num}
 		</if>
 	</select>
 </mapper>

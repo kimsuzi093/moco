@@ -269,11 +269,28 @@
 					flag : flag, 
 					bNum : bNum
 				},
-				success : function(data) {
-					
-				}
 			});
 		}
+		// 영화 신청하기, 보러가기
+		$(".movieRequest").click(function(){
+			var request = $(this).attr("id");
+			var bNum = ${movieDTO.num };
+			if(request == '영화보러가기'){
+				location.href="";
+			}else if(request == '영화신청하기'){
+				$.ajax({
+					url : "./movieRequest",
+					type : "GET",
+					data : {
+						num : num
+					},
+				});
+				alert("영화 신청을 완료했습니다.");
+				location.href="./movieView?num="+num;
+			}else{
+				alert("등록 진행중인 영화입니다.")
+			}
+		});
 	});
 </script>
 <style type="text/css">
@@ -345,6 +362,11 @@
     .reviewUpdateStar:hover{
     	background-color : rgba(192,192,192,0.3);
     }
+    #movieInfo .btn{
+    	height: 26px;
+    	font-size: 8px;
+    	margin-left: 5px;
+    }
 </style>
 </head>
 <body>
@@ -355,13 +377,16 @@
 			<img src="${movieDTO.thumnail }">
 		</div>
 		<div id="movieInfo" title="${movieDTO.num }">
-			<p>${movieDTO.title }</p>
+			<span style="font-size: 25px;">${movieDTO.title }
+				<button class="btn movieRequest" id="${requestMessage }">${requestMessage }</button>
+			</span>
+			
 			<p>${movieDTO.eng_title }</p>
 			<span class="star-rating">
 				<span style="width: ${movieDTO.user_rating*10}%"></span>
 			</span>
 			<span>${movieDTO.user_rating }/10 (${review_count }명 참여)</span>
-			<p><strong>개요</strong> ${movieDTO.genre } | ${movieDTO.nation } | ${movieDTO.play_time } | ${movieDTO.pub_date }개봉</p>
+			<p style="margin-top: 10px;"><strong>개요</strong> ${movieDTO.genre } | ${movieDTO.nation } | ${movieDTO.play_time } | ${movieDTO.pub_date }개봉</p>
 			<p><strong>감독</strong> ${movieDTO.director }</p>
 			<p><strong>주연</strong> ${movieDTO.actor }</p>
 			<p><strong>등급</strong> ${movieDTO.watching_rate }</p>

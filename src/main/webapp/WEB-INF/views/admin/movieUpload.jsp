@@ -161,12 +161,17 @@
 	          <table>
 	          	<tr class="formTR">
 	          		<td class="titleTD"><span class="titleSpan">NUM</span></td>
-					<td class="contentsTD"><input type="number" name="movieNum" class="form-control"></td>
+					<td class="contentsTD"><input type="number" value="${movieNum}" name="movieNum" class="form-control"></td>
 					<td class="lastTD">
-						<select name="movieKind" class="form-control">
-							<option value="basicMovie">일반 영화</option>
-							<option value="lowPriceMovie">저예산 영화</option>
-						</select>
+						<c:if test="${movieNum==0}">
+							<select name="movieKind" class="form-control">
+								<option value="basicMovie">일반 영화</option>
+								<option value="lowPriceMovie">저예산 영화</option>
+							</select>
+						</c:if>
+						<c:if test="${movieNum>0}">
+							<input type="hidden" name="movieKind" value="${movieKind}">
+						</c:if>
 					</td>
 	          	</tr>
 	          	<tr class="formTR">

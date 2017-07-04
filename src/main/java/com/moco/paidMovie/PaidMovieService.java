@@ -6,11 +6,35 @@ import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.moco.movieAPI.BasicMovieDTO;
+import com.moco.movieRequest.MovieRequestDTO;
+
 @Service
 public class PaidMovieService {
 
 	@Autowired
 	private PaidMovieDAO paidMovieDAO;
+
+	// movieRequest에 있는 영화가 upload 된다면, movieReqeustTable에서 삭제하기
+	public int movieRequestDelete(PaidMovieDTO paidMovieDTO) throws Exception{
+		MovieRequestDTO movieRequestDTO = new MovieRequestDTO();
+		movieRequestDTO.setbNum(paidMovieDTO.getbNum());
+		movieRequestDTO.setlNum(paidMovieDTO.getlNum());
+		return paidMovieDAO.movieRequestDelete(movieRequestDTO);
+	}
+	
+	// Kind, num으로 어떤 영화인지 알아오기
+	public String kindFind(String movieTitle, int movieNum) throws Exception{
+		String movieKind = "basicMovie";
+		BasicMovieDTO basicMovieDTO = new BasicMovieDTO();
+		basicMovieDTO.setNum(movieNum);
+		basicMovieDTO.setTitle(movieTitle);
+		basicMovieDTO = paidMovieDAO.basicSearch(basicMovieDTO);
+		if(basicMovieDTO == null){
+			movieKind = "lowPriceMovie";
+		}
+		return movieKind;
+	}
 	
 	// movieKind별로 DTO 셋팅
 	public PaidMovieDTO DTOSet(PaidMovieDTO paidMovieDTO, String movieKind, int movieNum) throws Exception{
@@ -23,7 +47,7 @@ public class PaidMovieService {
 		}
 		return paidMovieDTO;
 	}
-	
+
 	// movieList
 	public List<PaidMovieDTO> movieList(Map<String, Object> map) throws Exception{
 		return paidMovieDAO.movieList(map);
@@ -48,5 +72,9 @@ public class PaidMovieService {
 	public int movieTotalCount(String search) throws Exception{
 		return paidMovieDAO.movieTotalCount(search);
 	}
-	
+	// movieSelectOne(bNum, lNum)
+	public PaidMovieDTO paidMovieSelectOne(Map<String, Object> map) throws Exception{
+		return paidMovieDAO.paidMovieSelectOne(map);
+	}
+
 }

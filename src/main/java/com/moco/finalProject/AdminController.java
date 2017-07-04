@@ -80,13 +80,22 @@ public class AdminController {
 	////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 	// movieUpload
 	@RequestMapping(value="movieUpload",method=RequestMethod.GET)
-	public void movieUpload(Integer curPage, String search, HttpSession session, Model model) throws Exception{
+	public void movieUpload(Integer movieNum, String movieTitle, Integer curPage, String search, HttpSession session, Model model) throws Exception{
 		Map<String, Object> map = new HashMap<String, Object>();
+		
 		if(curPage == null){
 			curPage = 1;
 		}
 		if(search == null){
 			search = "%%%";
+		}
+		
+		// movieRequest에서 영화Upload로 넘어갈 때
+		if(movieNum == null){
+			movieNum = 0;
+		}
+		if(movieTitle == null){
+			movieTitle = "%";
 		}
 
 		RowMaker rowMaker = new RowMaker();
@@ -94,7 +103,8 @@ public class AdminController {
 		map.put("row", rowMaker);
 		map.put("search", search);
 		map.put("curPage", curPage);
-
+		
+		// pageing
 		PageMaker pageMaker = new PageMaker(curPage);
 		int totalCount = paidMovieService.movieTotalCount(search);
 		PageResult pageResult = pageMaker.paging(totalCount);
@@ -105,7 +115,11 @@ public class AdminController {
 		// Upload한 movies
 		List<PaidMovieDTO> ar = paidMovieService.movieList(map);
 		model.addAttribute("fileList", ar);
-
+		
+		// movieNum & movieTitle
+		model.addAttribute("movieNum", movieNum);
+		model.addAttribute("movieKind", paidMovieService.kindFind(movieTitle, movieNum));
+		
 	}
 	// movieUploadInsert
 	@RequestMapping(value="movieUpload", method=RequestMethod.POST)
@@ -126,6 +140,10 @@ public class AdminController {
 
 		// DB
 		paidMovieService.movieInsert(paidMovieDTO);
+		
+		// 만일, movieRequest를 타고 와서 upload를 했을 시에는 movieRequestTable에서 삭제해 주어야 함.
+		paidMovieService.movieRequestDelete(paidMovieDTO);
+		
 		return "redirect:/admin/movieUpload";
 	}
 	// delete

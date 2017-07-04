@@ -13,11 +13,11 @@
 			</c:if>
 		</div>
 		<div class="searchResultWrap-right">
-			<p>${list.title }(${list.eng_title })</p>
+			<p style="font-size: 25px;">${list.title }(${list.eng_title })</p>
 			<span class="star-rating">
 				<span style="width: ${list.user_rating*10}%"></span>
 			</span>
-			<span>${list.user_rating }/10 (-명 참여)</span>
+			<span style="font-size: 17px; margin-bottom: 2px;">${list.user_rating }/10</span>
 			<p>${list.genre }| ${list.pub_date } | ${list.play_time } |	${list.nation } | ${list.watching_rate}</p>
 			<p>감독 ${list.director }</p>
 			<p>주연 ${list.actor }</p>
@@ -25,15 +25,15 @@
 	</div>
 </c:forEach>
 <!-- PAGING -->
-<div class="paging">
+<ul class="paging pagination">
 	<c:if test="${pageResult.curBlock>1}">
-		<span class="go" id="${pageResult.startNum-1}">[이전]</span>
+		<li class="go" id="${pageResult.startNum-1}"><a>이전</a></li>
 	</c:if>
 	<c:forEach begin="${pageResult.startNum}" end="${pageResult.lastNum}" var="i">
-		<span class="go" id="${i}">${i}</span>
+		<li class="go" id="${i}"><a>${i}</a></li>
 	</c:forEach>
 	<c:if test="${pageResult.curBlock<pageResult.totalBlock}">
-		<span class="go" id="${pageResult.lastNum+1}">[다음]</span>
+		<li class="go" id="${pageResult.lastNum+1}"><a>다음</a></li>
 	</c:if>
-</div>
+</ul>
 </div>

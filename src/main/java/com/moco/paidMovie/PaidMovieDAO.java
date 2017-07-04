@@ -8,6 +8,9 @@ import javax.inject.Inject;
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.stereotype.Repository;
 
+import com.moco.movieAPI.BasicMovieDTO;
+import com.moco.movieRequest.MovieRequestDTO;
+
 @Repository
 public class PaidMovieDAO {
 	
@@ -39,5 +42,20 @@ public class PaidMovieDAO {
 	public int movieTotalCount(String search) throws Exception{
 		return sqlSession.selectOne(NAMESPACE+"movieTotalCount", search);
 	}
+
+	// movieSelectOne(bNum, lNum)
+	public PaidMovieDTO paidMovieSelectOne(Map<String, Object> map) throws Exception{
+		return sqlSession.selectOne(NAMESPACE+"paidMovieSelectOne", map);
+	}
 	
+
+	// basicSearch
+	public BasicMovieDTO basicSearch(BasicMovieDTO basicMovieDTO) throws Exception{
+		return sqlSession.selectOne(NAMESPACE+"basicSearch", basicMovieDTO);
+	}
+	// movieRequestDelete
+	public int movieRequestDelete(MovieRequestDTO movieRequestDTO) throws Exception{
+		return sqlSession.delete(NAMESPACE+"movieRequestDelete", movieRequestDTO);
+	}
+
 }
