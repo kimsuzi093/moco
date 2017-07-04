@@ -38,4 +38,21 @@
 	<update id="update" parameterType="com.moco.lowpricemovie.LowPriceMovieDTO">
 		update lowpricemovie set pub_date=#{pub_date}, watching_rate=#{watching_rate} where num=#{num}
 	</update>
+	
+	<!-- 찜 check -->
+	<select id="jjimCheck" parameterType="com.moco.jjim.JjimDTO" resultType="com.moco.jjim.JjimDTO">
+		select * from jjim where id=#{id} and lnum=#{lNum}
+	</select>
+	
+	<!-- 찜 insert -->
+	<insert id="jjimInsert" parameterType="com.moco.jjim.JjimDTO">
+		insert into jjim values(#{id}, 0, #{lNum})
+	</insert>
+	
+	<!-- 찜 delete -->
+	<delete id="jjimDelete" parameterType="com.moco.jjim.JjimDTO">
+		delete jjim where id=#{id} and lnum=#{lNum}
+	</delete>
+	
+	
 </mapper>
