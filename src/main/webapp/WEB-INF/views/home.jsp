@@ -161,7 +161,7 @@ body {
 
 	<div id="intro" class="container text-center">
 		<div class="title">
-			<p>소개하는 글 적기!!!뿡뿡</p>
+			<p>소개하는 글 적기!!!뿡뿡~~~~</p>
 		</div>
 		
 		<div class="contents">
