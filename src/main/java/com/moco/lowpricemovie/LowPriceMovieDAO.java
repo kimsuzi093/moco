@@ -9,6 +9,7 @@ import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import com.moco.jjim.JjimDTO;
 import com.moco.util.RowMaker;
 
 @Repository
@@ -60,4 +61,18 @@ public class LowPriceMovieDAO {
 		System.out.println(lowPriceMovieDTO.getWatching_rate());
 		return sqlSession.update(NAMESPACE+"update", lowPriceMovieDTO);
 	}
+	
+	// 찜하기 확인
+	public JjimDTO jjimCheck(JjimDTO jjimDTO) throws Exception{
+		return sqlSession.selectOne(NAMESPACE+"jjimCheck", jjimDTO);
+	}
+	// 찜하기 INSERT
+	public int jjimInsert(JjimDTO jjimDTO) throws Exception{
+		return sqlSession.insert(NAMESPACE+"jjimInsert", jjimDTO);
+	}
+	// 찜하기 DELETE
+	public int jjimDelete(JjimDTO jjimDTO) throws Exception{
+		return sqlSession.delete(NAMESPACE+"jjimDelete", jjimDTO);
+	}
+	
 }

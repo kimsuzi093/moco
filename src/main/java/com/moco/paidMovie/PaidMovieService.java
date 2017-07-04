@@ -11,7 +11,19 @@ public class PaidMovieService {
 
 	@Autowired
 	private PaidMovieDAO paidMovieDAO;
-
+	
+	// movieKind별로 DTO 셋팅
+	public PaidMovieDTO DTOSet(PaidMovieDTO paidMovieDTO, String movieKind, int movieNum) throws Exception{
+		if(movieKind.equals("basicMovie")){
+			paidMovieDTO.setbNum(movieNum);
+			paidMovieDTO.setlNum(0);
+		}else{
+			paidMovieDTO.setlNum(movieNum);
+			paidMovieDTO.setbNum(0);
+		}
+		return paidMovieDTO;
+	}
+	
 	// movieList
 	public List<PaidMovieDTO> movieList(Map<String, Object> map) throws Exception{
 		return paidMovieDAO.movieList(map);

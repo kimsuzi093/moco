@@ -5,8 +5,11 @@
     
 <mapper namespace="MovieRequestMapper">
 	<!-- insert 되어 있다면, 신청 중인 상태 > List -->
-	<select id="movieRequestForList" resultType="com.moco.movieRequest.MovieRequestDTO">
-		select * from movieRequest
+	<select id="movieRequestForList" parameterType="java.util.Map" resultType="com.moco.movieRequest.MovieRequestDTO">
+		select * from
+		(select rownum R, M.* from
+		(select * from movieRequest) M)
+		where R between #{row.startRow} and #{row.lastRow}
 	</select>
 	<select id="basicMovieList" parameterType="java.lang.Integer" resultType="com.moco.movieAPI.BasicMovieDTO">
 		select * from basicMovie where num=#{num}

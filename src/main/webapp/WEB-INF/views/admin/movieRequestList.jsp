@@ -11,27 +11,48 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <script type="text/javascript">
 	$(function() {
-		/* // page
+		// page
 		$(".go").click(function(){
 			var curPage=$(this).attr("id");
 			location.href="./movieRequestList?curPage="+curPage;
-		}); */
+		});
 	});
 </script>
+<style type="text/css">
+	.container{
+		width: 1370px;
+	}
+	.paging{
+		text-align: center;
+	}
+</style>
 </head>
 <body>
 	<div class="container">
 		<h2>Movie Request</h2>
-		
-		<table>
+		<br>
+		<table class="table table-hover">
 			<tr>
 				<td>NUM</td>
 				<td>TITLE</td>
-				<td></td>
+				<td>ENG_TITLE</td>
+				<td>GENRE</td>
+				<td>DIRECTOR</td>
+				<td>ACTOR</td>
 			</tr>	
+			<c:forEach items="${movieRequestList}" var="movie">
+				<tr>
+					<td>${movie.num}</td>
+					<td>${movie.title}</td>
+					<td>${movie.genre}</td>
+					<td>${movie.eng_title}</td>
+					<td>${movie.director}</td>
+					<td>${movie.actor}</td>
+				</tr>
+			</c:forEach>
 		</table>
 		
-		<%-- <!-- 페이징 처리 -->
+		<!-- 페이징 처리 -->
 		<div class="paging">
 			<c:if test="${pageResult.curBlock>1}">
 				<button class="btn"><span class="go" id="${pageResult.startNum-1}">[이전]</span></button>
@@ -42,7 +63,7 @@
 			<c:if test="${pageResult.curBlock<pageResult.totalBlock}">
 				<button class="btn"><span class="go" id="${pageResult.lastNum+1}">[다음]</span></button>
 			</c:if>
-		</div> --%>
+		</div>
 		
 	</div>
 </body>

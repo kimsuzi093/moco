@@ -11,6 +11,8 @@ import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.moco.jjim.JjimDAO;
+import com.moco.jjim.JjimDTO;
 import com.moco.multiplex.MultiplexDAO;
 import com.moco.multiplex.MultiplexDTO;
 import com.moco.screen.ScreenDAO;
@@ -218,7 +220,18 @@ public class LowPriceMovieService {
 		return str;
 	}
 	
-	
+	// 찜하기 확인
+	public JjimDTO jjimCheck(JjimDTO jjimDTO) throws Exception{
+		return lowPriceMovieDAO.jjimCheck(jjimDTO);
+	}
+	// 찜하기 INSERT
+	public int jjimInsert(JjimDTO jjimDTO) throws Exception{
+		return lowPriceMovieDAO.jjimInsert(jjimDTO);
+	}
+	// 찜하기 DELETE
+	public int jjimDelete(JjimDTO jjimDTO) throws Exception{
+		return lowPriceMovieDAO.jjimDelete(jjimDTO);
+	}
 	
 	
 	
