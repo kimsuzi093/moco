@@ -58,13 +58,23 @@ public class AdminController {
 		model.addAttribute("memberStateCount", memberService.adminStateCount());
 		// 배급사 신청 - 대기중
 		model.addAttribute("agencyCommitCount", agencyService.agencyUncommitCount());
+		// movieRequest - 요청 중
+		model.addAttribute("movieRequest", movieRequestService.movieRequestTotalCount());
 	}
 
 	// movieRequest
 	@RequestMapping(value="movieRequestList",method=RequestMethod.GET)
 	public void movieRequest(Integer curPage, Model model) throws Exception{
-		List<BasicMovieDTO> ar = movieRequestService.movieRequestList();
+		if(curPage == null){
+			curPage = 1;
+		}
+		// list
+		List<BasicMovieDTO> ar = movieRequestService.movieRequestList(curPage);
 		model.addAttribute("movieRequestList", ar);
+		// 페이징
+		PageMaker pageMaker = new PageMaker(curPage, 10);
+		PageResult pageResult = pageMaker.paging(movieRequestService.movieRequestTotalCount());
+		model.addAttribute("pageResult", pageResult);
 	}
 	
 	////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -99,8 +109,10 @@ public class AdminController {
 	}
 	// movieUploadInsert
 	@RequestMapping(value="movieUpload", method=RequestMethod.POST)
-	public String movieUploadInsert(HttpSession session, PaidMovieDTO paidMovieDTO, @RequestParam(value="movie") MultipartFile multipartFile) throws Exception{
+	public String movieUploadInsert(HttpSession session, PaidMovieDTO paidMovieDTO, String movieKind, int movieNum, @RequestParam(value="movie") MultipartFile multipartFile) throws Exception{
 		String path = session.getServletContext().getRealPath("resources/upload/adminMovieUpload");
+		// DTO 셋팅
+		paidMovieDTO = paidMovieService.DTOSet(paidMovieDTO, movieKind, movieNum);
 		// oname Set
 		paidMovieDTO.setOname(multipartFile.getOriginalFilename());
 		File f = new File(path);

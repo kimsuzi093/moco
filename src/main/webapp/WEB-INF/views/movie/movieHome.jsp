@@ -20,6 +20,12 @@
 	font-weight: bold;
 }
 
+.carousel-inner > .item > img, .carousel-inner > .item > a > img {
+	width: 100%;
+	height: 600px;
+	margin: auto;
+}
+
 .sub {
 	width: 45%;
 	height: 400px;
@@ -28,13 +34,13 @@
 	font-weight: bold;
 }
 
-.left{
+.sub_left{
 	margin-left: 4%;
 	border: solid red 2px;
 	float: left;
 }
 
-.right {
+.sub_right {
 	margin-right: 4%;
 	border: solid green 2px;
 	float: right;
@@ -44,11 +50,64 @@
 <body>
 	<%@ include file="/resources/part/header1.jspf" %>
 	<section>
-		<div class="img">이미지 슬라이드</div>
-		<div class="sub left">sub1</div>
-		<div class="sub right">sub2</div>
-		<div class="sub left">sub3</div>
-		<div class="sub right">sub4</div>
+	
+		<div class="img">
+			<div id="myCarousel" class="carousel slide" data-ride="carousel">
+				<!-- Indicators -->
+				<ol class="carousel-indicators">
+					<li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+					<li data-target="#myCarousel" data-slide-to="1"></li>
+					<li data-target="#myCarousel" data-slide-to="2"></li>
+					<li data-target="#myCarousel" data-slide-to="3"></li>
+				</ol>
+
+				<!-- Wrapper for slides -->
+				<div class="carousel-inner" role="listbox">
+					<div class="item active">
+						<a href="#"><img src="${pageContext.request.contextPath}/resources/img/intro.jpg"></a>
+						<div class="carousel-caption">
+							<h3>사진 1</h3>
+						</div>
+					</div>
+
+					<div class="item">
+						<a href="#"><img src="${pageContext.request.contextPath}/resources/img/intro.jpg"></a>
+						<div class="carousel-caption">
+							<h3>사진 2</h3>
+						</div>
+					</div>
+					
+					<div class="item">
+						<a href="#"><img src="${pageContext.request.contextPath}/resources/img/intro.jpg"></a>
+						<div class="carousel-caption">
+							<h3>사진 2</h3>
+						</div>
+					</div>
+					
+					<div class="item">
+						<a href="#"><img src="${pageContext.request.contextPath}/resources/img/intro.jpg"></a>
+						<div class="carousel-caption">
+							<h3>사진 2</h3>
+						</div>
+					</div>
+				</div>
+
+				<!-- Left and right controls -->
+				<a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+					<span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+					<span class="sr-only">Previous</span>
+				</a> <a class="right carousel-control" href="#myCarousel" role="button"	data-slide="next">
+					<span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+					<span class="sr-only">Next</span>
+				</a>
+			</div>
+		</div>
+		<!-- banner end -->
+		
+		<div class="sub sub_left">sub1</div>
+		<div class="sub sub_right">sub2</div>
+		<div class="sub sub_left">sub3</div>
+		<div class="sub sub_right">sub4</div>
 	</section>
 </body>
 </html>
