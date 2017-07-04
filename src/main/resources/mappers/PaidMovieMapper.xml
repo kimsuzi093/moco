@@ -22,4 +22,9 @@
 	<select id="movieTotalCount" resultType="java.lang.Integer" parameterType="java.lang.String">
 		select count(num) from paidMovie where oname like '%'||#{search}||'%'
 	</select>
+	
+	<!-- kind를 위해 두가지 sql 문 쓴다 젠장 -->
+	<select id="basicSearch" parameterType="com.moco.movieAPI.BasicMovieDTO" resultType="com.moco.movieAPI.BasicMovieDTO">
+		select * from basicMovie where num=#{num} and title=#{title}
+	</select>
 </mapper>

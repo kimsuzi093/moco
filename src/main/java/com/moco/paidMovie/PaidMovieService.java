@@ -6,11 +6,26 @@ import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.moco.movieAPI.BasicMovieDTO;
+
 @Service
 public class PaidMovieService {
 
 	@Autowired
 	private PaidMovieDAO paidMovieDAO;
+	
+	// Kind, num으로 어떤 영화인지 알아오기
+	public String kindFind(String movieTitle, int movieNum) throws Exception{
+		String movieKind = "basicMovie";
+		BasicMovieDTO basicMovieDTO = new BasicMovieDTO();
+		basicMovieDTO.setNum(movieNum);
+		basicMovieDTO.setTitle(movieTitle);
+		basicMovieDTO = paidMovieDAO.basicSearch(basicMovieDTO);
+		if(basicMovieDTO == null){
+			movieKind = "lowPriceMovie";
+		}
+		return movieKind;
+	}
 	
 	// movieKind별로 DTO 셋팅
 	public PaidMovieDTO DTOSet(PaidMovieDTO paidMovieDTO, String movieKind, int movieNum) throws Exception{

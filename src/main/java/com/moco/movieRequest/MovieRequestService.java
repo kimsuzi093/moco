@@ -27,10 +27,11 @@ public class MovieRequestService {
 		BasicMovieDTO basicMovieDTO = null;
 		//	실질적인 list 반환
 		List<BasicMovieDTO> ar = new ArrayList<BasicMovieDTO>();
-		// num 들을 꺼내와서 각각의 list를 불러내자.
+		// rowMaker for Paging
 		RowMaker rowMaker = new RowMaker();
 		rowMaker.makeRow(curPage, 10);
 		map.put("row", rowMaker);
+		// num 들을 꺼내와서 각각의 list를 불러내자.
 		List<MovieRequestDTO> nums = this.movieRequestForList(map);
 		for (MovieRequestDTO movieRequestDTO : nums) {
 			// basicMovie

@@ -16,6 +16,12 @@
 			var curPage=$(this).attr("id");
 			location.href="./movieRequestList?curPage="+curPage;
 		});
+		// upload
+		$(".uploadGo").click(function(){
+			var movieNum = $(this).attr("id");
+			var movieTitle = $(this).val();
+			location.href="./movieUpload?movieNum="+movieNum+"&movieTitle="+movieTitle;
+		});
 	});
 </script>
 <style type="text/css">
@@ -25,25 +31,40 @@
 	.paging{
 		text-align: center;
 	}
+	.titleSpan{
+		font-size: 1.2em;
+		font-weight: bold;
+	}
+	.uploadGo{
+		border: none;	
+		font-weight: bold;
+	}
+	.uploadGo:hover{
+		background-color : white;
+		text-decoration: underline;
+	}
+	.btnBox{
+		text-align: right;
+	}
 </style>
 </head>
 <body>
 	<div class="container">
 		<h2>Movie Request</h2>
 		<br>
-		<table class="table table-hover">
+		<table class="table">
 			<tr>
-				<td>NUM</td>
-				<td>TITLE</td>
-				<td>ENG_TITLE</td>
-				<td>GENRE</td>
-				<td>DIRECTOR</td>
-				<td>ACTOR</td>
+				<td><span class="titleSpan">NUM</span></td>
+				<td><span class="titleSpan">TITLE</span></td>
+				<td><span class="titleSpan">ENG_TITLE</span></td>
+				<td><span class="titleSpan">GENRE</span></td>
+				<td><span class="titleSpan">DIRECTOR</span></td>
+				<td><span class="titleSpan">ACTOR</span></td>
 			</tr>	
-			<c:forEach items="${movieRequestList}" var="movie">
+			<c:forEach items="${movieRequestList}" var="movie" varStatus="i">
 				<tr>
 					<td>${movie.num}</td>
-					<td>${movie.title}</td>
+					<td><input type="button" value="${movie.title}" id="${movie.num}" class="uploadGo btn btn-default" ></td>
 					<td>${movie.genre}</td>
 					<td>${movie.eng_title}</td>
 					<td>${movie.director}</td>
@@ -63,6 +84,12 @@
 			<c:if test="${pageResult.curBlock<pageResult.totalBlock}">
 				<button class="btn"><span class="go" id="${pageResult.lastNum+1}">[다음]</span></button>
 			</c:if>
+		</div>
+		
+		<!-- BTN -->
+		<div class="btnBox">
+			<a href="./index"><button class="btn">Admin Index</button></a>&nbsp;&nbsp;
+			<a href="../"><button class="btn">HOME</button></a>
 		</div>
 		
 	</div>
