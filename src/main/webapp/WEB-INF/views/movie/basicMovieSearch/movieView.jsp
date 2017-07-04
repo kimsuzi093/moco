@@ -269,11 +269,28 @@
 					flag : flag, 
 					bNum : bNum
 				},
-				success : function(data) {
-					
-				}
 			});
 		}
+		// 영화 신청하기, 보러가기
+		$(".movieRequest").click(function(){
+			var request = $(this).attr("id");
+			var bNum = ${movieDTO.num };
+			if(request == '영화보러가기'){
+				location.href="";
+			}else if(request == '영화신청하기'){
+				$.ajax({
+					url : "./movieRequest",
+					type : "GET",
+					data : {
+						num : num
+					},
+				});
+				alert("영화 신청을 완료했습니다.");
+				location.href="./movieView?num="+num;
+			}else{
+				alert("등록 진행중인 영화입니다.")
+			}
+		});
 	});
 </script>
 <style type="text/css">
@@ -361,7 +378,7 @@
 		</div>
 		<div id="movieInfo" title="${movieDTO.num }">
 			<span style="font-size: 25px;">${movieDTO.title }
-				<button class="btn" id="${requestMessage }">${requestMessage }</button>
+				<button class="btn movieRequest" id="${requestMessage }">${requestMessage }</button>
 			</span>
 			
 			<p>${movieDTO.eng_title }</p>

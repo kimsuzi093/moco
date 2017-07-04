@@ -184,4 +184,16 @@ public class BasicMovieController {
 			e.printStackTrace();
 		}
 	}
+	// 영화 신청하기
+	@RequestMapping(value = "movieRequest", method = RequestMethod.GET)
+	public void movieRequest(int num){
+		Map<String, Object> map = new HashMap<String, Object>();
+		map.put("kind", "bNum");
+		map.put("num", num);
+		try {
+			movieRequestService.movieRequestInsert(map);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
 }
