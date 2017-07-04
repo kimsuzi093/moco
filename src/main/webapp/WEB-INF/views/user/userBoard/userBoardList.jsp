@@ -35,10 +35,6 @@
 	});
 </script>
 <style type="text/css">
-.container {
-	padding: 10px;
-}
-
 .search_left {
 	width: 200px;
 	float: left;

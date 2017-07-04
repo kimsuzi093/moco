@@ -107,7 +107,7 @@ public class MemberController {
 			redirectAttributes.addFlashAttribute("message", message);
 		}
 
-		return "redirect:/";
+		return "redirect:/#go";
 	}
 	
 	@RequestMapping(value="memberLogout", method=RequestMethod.GET)
@@ -228,10 +228,10 @@ public class MemberController {
 			e.printStackTrace();
 		}
 		
-		String message = "이미 존재하는 아이디입니다.";
-		
+		String message = "<font color='red'>이미 존재하는 아이디입니다.</font>";
+
 		if(check == true){
-			message = "사용가능한 아이디 입니다.";
+			message = "<font color='blue'>사용가능한 아이디 입니다.</font>";
 		}
 		
 		model.addAttribute("message", message);

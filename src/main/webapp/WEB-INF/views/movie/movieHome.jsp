@@ -12,7 +12,7 @@
 <style type="text/css">
 .img {
 	width: 100%;
-	height: 600px;
+	height: 400px;
 	border: solid blue 2px;
 	margin: 0 auto;
 	margin-top: -50px;
@@ -22,14 +22,14 @@
 
 .carousel-inner > .item > img, .carousel-inner > .item > a > img {
 	width: 100%;
-	height: 600px;
+	height: 400px;
 	margin: auto;
 }
 
 .sub {
 	width: 45%;
-	height: 400px;
-	margin: 20px 0;
+	height: 300px;
+	margin-top: 20px;
 	font-size: 30px;
 	font-weight: bold;
 }

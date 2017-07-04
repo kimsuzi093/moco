@@ -1,15 +1,23 @@
 @CHARSET "UTF-8";
 
-section{
-	width: 100%;
-	margin-top: 0px;
-	padding-top: 50px;
-	min-height: 1000px;
-	height: auto;
-	/* background-image: url("../img/section.jpg");
+body{
+	/* background-image: url("../img/section.jpg"); 
 	background-size: cover; */
+	background-color: #ffff00;
+}
+
+section{
+	width: 1200px;
+	margin: 0 auto;
+	padding-top: 50px;
+	padding-bottom: 50px;
+	height: auto;
+	min-height: 1000px;
 	background-color: #ffd699;
-	z-index: -1;
+}
+
+.container {
+	padding: 10px;
 }
 
 /* section {

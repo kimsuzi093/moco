@@ -7,7 +7,6 @@
 <%@ include file="/resources/part/bootStrap.jspf" %>
 <link rel="styleSheet" type="text/css" href="${pageContext.request.contextPath}/resources/css/header.css">
 <link rel="styleSheet" type="text/css" href="${pageContext.request.contextPath}/resources/css/section.css">
-<link rel="styleSheet" type="text/css" href="${pageContext.request.contextPath}/resources/css/footer.css">
 <title>Insert title here</title>
 
 <%-- <script type="text/javascript" src="${pageContext.request.contextPath}/resources/script/join.js"></script> --%>
@@ -29,7 +28,7 @@ $(function() {
 			$("#id_result").html(data);
 			
 			if(pattern.test(id) == false){
-				$("#id_result").html("아이디는 4~12자리 영문(대소문자 구별), 숫자");
+				$("#id_result").html("<font color='red'>아이디는 4~12자리 영문(대소문자 구별), 숫자</font>");
 				idCheck = false;
 			} else if(id == "") {
 				$("#id_result").html("아이디를 입력해주세요");
@@ -48,14 +47,14 @@ $(function() {
 		if(pattern.test(pw1) == false){
 			$("#pw_result1").html("비밀번호는 8~14자리 영문(대소문자 구별), 숫자");
 		} else {
-			$("#pw_result1").html("Check!!");
+			$("#pw_result1").html("<font color='blue'>Check!!</font>");
 		}
 		
 		if(pw1 != pw2) {
-			$("#pw_result2").html("비밀번호가 다릅니다.");
+			$("#pw_result2").html("<font color='red'>비밀번호가 다릅니다.</font>");
 			pwCheck = false;
 		} else {
-			$("#pw_result2").html("Check!!");
+			$("#pw_result2").html("<font color='blue'>Check!!</font>");
 			pwCheck = true;
 		}
 	})
@@ -66,10 +65,10 @@ $(function() {
 		var pw2 = document.frm.pw2.value;
 		
 		if(pw1 != pw2) {
-			$("#pw_result2").html("비밀번호가 다릅니다.");
+			$("#pw_result2").html("<font color='red'>비밀번호가 다릅니다.</font>");
 			pwCheck = false;
 		} else {
-			$("#pw_result2").html("Check!!");
+			$("#pw_result2").html("<font color='blue'>Check!!</font>");
 			pwCheck = true;
 		}
 	})
@@ -134,83 +133,127 @@ $(function() {
 });
 </script>
 
+<style type="text/css">
+.join {
+ 	width: 800px;
+ 	margin: 20px auto;
+}
+
+tr {
+	height: 50px;
+}
+
+td.name {
+	width: 200px;
+	text-align: center;
+}
+
+td.push {
+	width: 300px;
+}
+
+td.result {
+	width: 300px;
+	font-size: 0.9em;
+	vertical-align: middle;
+}
+</style>
+
 </head>
 <body>
-	
 	<%@ include file="/resources/part/header1.jspf" %>
 
 	<section>
-	<h2>Member Join</h2>
-	<form action="memberJoin" name="frm" id="frm" method="POST" enctype="multipart/form-data">
-		<table class="table table-hover" style="width: 300px">
-			<tr>
-				<td>*ID:<input type="text" class="form-control" name="id" id="id" required="required">
-				<br><span id="id_result"></span></td>
-			</tr>
-			
-			<tr>
-				<td>*PW:<input type="text" class="form-control" name="password" id="pw1">
-				<br><p id="pw_result1"></p></td>
-			</tr>
-			<tr>
-				<td>*PW Check:<input type="text" class="form-control" id="pw2">
-				<br><p id="pw_result2"></p></td>
-			</tr>
-			
-			<tr>
-				<td>*Password Find Question
-					<select class="form-control" name="question">
-					<option value="초등학교">초등학교는?</option>
-					<option value="배우자">배우자는?</option>
-					<option value="별명">별명은?</option>
-				</select></td>
-			</tr>
-			<tr>
-				<td>*ANSWER:<input type="text" class="form-control" name="answer" id="answer"></td>
-			</tr>
-			
-			<tr>
-				<td>*NAME:<input type="text" class="form-control" name="name" id="name"></td>
-			</tr>
-			
-			<tr>
-				<td>DATE<input type="date" class="form-control" name="birth" value=1991-03-07></td>
-			</tr>
-			<tr>
-				<td>ADDRESS<input type="text" class="form-control" name="address" value="2"></td>
-			</tr>
-			
-			<tr>
-				<td>PHONE<input type="text" class="form-control" name="phone" value="123456789"></td>
-			</tr>
-			<tr>
-				<td>*EMAIL<input type="email" class="form-control" name="email" id="email"></td>
-			</tr>
-			
-			<tr>
-				<td>*KIND<select class="form-control" name="kind" id="kind">
-					<option value="일반" selected="selected">일반</option>
-					<option value="배우">배우</option>
-					<option value="감독">감독</option>
-					<option value="평론가">평론가</option>
-				</select></td>
-			</tr>
-			
-			<tr>
-				<td>IMG<input type="file" class="form-control" name="f1"></td>
-			</tr>
-		</table>
-
-		<input type="number" name="likes" readonly="readonly" hidden="hidden" value=0>
-		<input type="number" name="point" readonly="readonly" hidden="hidden" value=0>
-		<input type="number" name="avaliableLikes" readonly="readonly" hidden="hidden" value=0>
-		grade<input type="text" name="grade" readonly="readonly" value="일반">
-		joinstate<input type="text" name="joinState" id="joinState" value="승인">
-		<input type="button" id="btn" class="btn btn-success" value="가입">
-	</form>
+		<div class="container">
+			<h2 style="text-align: center;">Member Join</h2>
+			<form action="memberJoin" name="frm" id="frm" method="POST" enctype="multipart/form-data">
+				<table class="join">
+					<tr>
+						<td class="name">*ID:</td>
+						<td class="push"><input type="text" class="form-control" name="id" id="id" required="required"></td>
+						<td class="result"><p id="id_result"></p></td>
+					</tr>
+					
+					<tr>
+						<td class="name">*PW:</td>
+						<td class="push"><input type="password" class="form-control" name="password" id="pw1"></td>
+						<td class="result"><p id="pw_result1"></p></td>
+					</tr>
+					
+					<tr>
+						<td class="name">*PW Check:</td>
+						<td class="push"><input type="password" class="form-control" id="pw2"></td>
+						<td class="result"><p id="pw_result2"></p></td>
+					</tr>
+					
+					<tr>
+						<td class="name">*Password Find Question</td>
+						<td class="push">
+							<select class="form-control" name="question">
+							<option value="초등학교">초등학교는?</option>
+							<option value="배우자">배우자는?</option>
+							<option value="별명">별명은?</option>
+						</select></td>
+					</tr>
+					
+					<tr>
+						<td class="name">*ANSWER:</td>
+						<td class="push"><input type="text" class="form-control" name="answer" id="answer"></td>
+					</tr>
+					
+					<tr>
+						<td class="name">*NAME:</td>
+						<td class="push"><input type="text" class="form-control" name="name" id="name"></td>
+					</tr>
+					
+					<tr>
+						<td class="name">DATE</td>
+						<td class="push"><input type="date" class="form-control" name="birth"></td>
+					</tr>
+					
+					<tr>
+						<td class="name">ADDRESS</td>
+						<td class="push"><input type="text" class="form-control" name="address"></td>
+					</tr>
+					
+					<tr>
+						<td class="name">PHONE</td>
+						<td class="push"><input type="text" class="form-control" name="phone"></td>
+					</tr>
+					
+					<tr>
+						<td class="name">*EMAIL</td>
+						<td class="push"><input type="email" class="form-control" name="email" id="email"></td>
+					</tr>
+					
+					<tr>
+						<td class="name">*KIND</td>
+						<td class="push"><select class="form-control" name="kind" id="kind">
+							<option value="일반" selected="selected">일반</option>
+							<option value="배우">배우</option>
+							<option value="감독">감독</option>
+							<option value="평론가">평론가</option>
+						</select></td>
+					</tr>
+					
+					<tr>
+						<td class="name">IMG</td>
+						<td class="push"><input type="file" class="form-control" name="f1"></td>
+					</tr>
+					
+					<tr>
+						<td class="name" colspan="3"><input type="button" id="btn" class="btn btn-success" style="width: 100%;" value="가입"></td>
+					</tr>
+				</table>
+		
+				<input type="number" name="likes" readonly="readonly" hidden="hidden" value=0>
+				<input type="number" name="point" readonly="readonly" hidden="hidden" value=0>
+				<input type="number" name="avaliableLikes" readonly="readonly" hidden="hidden" value=0>
+				<input type="text" name="grade" readonly="readonly" hidden="hidden" value="일반">
+				<input type="text" name="joinState" id="joinState" hidden="hidden" value="승인">
+				
+			</form>
+		</div>
 	</section>
-	
-	
-	<%@ include file="/resources/part/footer.jspf" %>
 </body>
 </html>
