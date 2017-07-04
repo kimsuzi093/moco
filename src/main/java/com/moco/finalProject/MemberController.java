@@ -236,7 +236,7 @@ public class MemberController {
 		
 		model.addAttribute("message", message);
 		
-		return "user/member/action/memberCheckResult";
+		return "member/action/memberCheckResult";
 	}
 	
 	//회원 사진 삭제
@@ -253,109 +253,7 @@ public class MemberController {
 			e.printStackTrace();
 		}
 		
-		return "user/member/action/memberFileDeleteResult";
-	}
-	
-	//관리자가 멤버 리스트 불러드림
-	@RequestMapping(value="memberList", method=RequestMethod.GET)
-	public void MemberList(Integer curPage, @RequestParam(required=false)String kind, @RequestParam(required=false)String search, Model model){
-		try {
-			if(kind == null){
-				kind="%";
-			}
-			if(curPage == null){
-				curPage = 1;
-			}
-			if(search == null){
-				search="%";
-			}
-			
-			Map<String, Object> map = memberService.memberList(curPage, kind, search);
-			model.addAttribute("list", map.get("list"));
-			model.addAttribute("pageResult",map.get("pageResult"));
-			model.addAttribute("curPage",curPage);
-			model.addAttribute("search", search);
-			model.addAttribute("kind", kind);
-		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-	}
-
-	//관리자가 delete
-	@RequestMapping(value="managementDelete", method=RequestMethod.POST)
-	public String managementDelete(String id, HttpSession session, Integer curPage, @RequestParam(required=false)String kind, @RequestParam(required=false)String search, Model model){
-		String message = "Member Delete Fail";
-		int result = 0;
-		
-		try {
-			result = memberService.memberDelete(id);
-			
-			//memberManagement 내용
-			if(kind == null){
-				kind="id";
-			}
-			if(curPage == null){
-				curPage = 1;
-			}
-			if(search == null){
-				search="%";
-			}
-			Map<String, Object> map = memberService.memberList(curPage, kind, search);
-			model.addAttribute("list", map.get("list"));
-			model.addAttribute("pageResult",map.get("pageResult"));
-			model.addAttribute("curPage",curPage);
-			model.addAttribute("search", search);
-		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		
-		if(result>0){
-			message = "Member Delete Success";
-		}
-		
-		session.setAttribute("memberDTO", (MemberDTO)session.getAttribute("memberDTO"));
-		return "user/member/memberList";
-	}
-	
-	//관리자가 멤버 수정
-	@RequestMapping(value="managementUpdate", method=RequestMethod.POST)
-	public String managementUpdate(MemberDTO memberDTO, HttpSession session, Integer curPage, @RequestParam(required=false)String kind, @RequestParam(required=false)String search, Model model){
-		String message = "Member Update Fail";
-		int result = 0;
-		
-		try {
-			result = memberService.managementUpdate(memberDTO);
-			
-			//memberManagement 내용
-			if(kind == null){
-				kind="id";
-			}
-			if(curPage == null){
-				curPage = 1;
-			}
-			if(search == null){
-				search="%";
-			}
-			
-			Map<String, Object> map = memberService.memberList(curPage, kind, search);
-			model.addAttribute("list", map.get("list"));
-			model.addAttribute("pageResult",map.get("pageResult"));
-			model.addAttribute("curPage",curPage);
-			model.addAttribute("search", search);
-		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		
-		if(result>0){
-			message = "Member Update Success";
-		}
-		
-		session.setAttribute("memberDTO", (MemberDTO)session.getAttribute("memberDTO"));
-
-		return "user/member/memberList";
+		return "member/action/memberFileDeleteResult";
 	}
 	
 	@RequestMapping(value="memberSearch", method=RequestMethod.GET)
@@ -397,7 +295,7 @@ public class MemberController {
 
 		model.addAttribute("message", message);
 
-		return "user/member/action/memberCheckResult";
+		return "member/action/memberCheckResult";
 	}
 	
 	@RequestMapping(value="memberSearchPW", method=RequestMethod.POST)

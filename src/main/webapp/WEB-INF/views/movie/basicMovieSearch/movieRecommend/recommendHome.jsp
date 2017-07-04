@@ -141,71 +141,91 @@
 		font-weight: bolder;
 		text-align: center;
 	}
+	#contentsWrap{
+		width: 1400px;
+		margin: 0 auto;
+	}
+	#recommendCriteria{
+		height: 40px;
+		margin-top: 10px;
+		border-bottom: 1px solid #cccccc;
+	}
+	#recommendSubCriteria{
+		height: 40px;
+		margin-bottom: 10px;
+		border-bottom: 1px solid #cccccc;
+	}
+	#genre{
+		height: 32px;
+		margin: 4px 13px;
+	}
 </style>
 </head>
 <body>
-	<ul class="nav nav-tabs nav-justified">
-	    <li><a href="">영화검색</a></li>
-	    <li class="active"><a href="">영화추천</a></li>
-	</ul>
 	<%@ include file="/resources/part/header1.jspf" %>
 	<section>
-	<div id="recommendCriteria">
-		<button id="genreRecommend" class="btn">장르별 추천영화</button>
-		<button id="yearRecommend" class="btn">년도별 추천영화</button>
-		<button id="ageRecommend" class="btn">나이별 추천영화</button>
-		<button id="weatherRecommend" class="btn">오늘날씨 추천영화</button>
-		<button id="groupRecommend" class="btn">커플끼리,가족끼리,혼자</button>
-		<button id="myRecommend" class="btn">내가 본 영화와 비슷한 영화</button>
-		<button id="reviewRecommend" class="btn">리뷰가 많은 영화</button>
-		<button id="jjimRecommend" class="btn">찜하기가 많은 영화</button>
-		<button id="recentRecommend" class="btn">개봉 예정 영화</button>
-	</div>
-	<div id="recommendSubCriteria">
-		<div id="ageWrap">
-			<button class="btn btn-default age" id="10">10대</button>
-			<button class="btn btn-default age" id="20">20대</button>
-			<button class="btn btn-default age" id="30">30대</button>
-			<button class="btn btn-default age" id="40">40대</button>
-			<button class="btn btn-default age" id="50">50대 이상</button>
-		</div>
-		<div id="yearWrap">
-			<button class="btn btn-default year" id="1950">1960년대 이전</button>
-			<button class="btn btn-default year" id="1960">1960년대</button>
-			<button class="btn btn-default year" id="1970">1970년대</button>
-			<button class="btn btn-default year" id="1980">1980년대</button>
-			<button class="btn btn-default year" id="1990">1990년대</button>
-			<button class="btn btn-default year" id="2000">2000년대</button>
-			<button class="btn btn-default year" id="2010">2010년대</button>
-		</div>
-		<div id="groupWrap">
-			<button class="btn btn-default group" id="couple">커플끼리</button>
-			<button class="btn btn-default group" id="family">가족끼리</button>
-			<button class="btn btn-default group" id="friend">친구끼리</button>
-			<button class="btn btn-default group" id="alone">혼자</button>
-		</div>
-		<div id="genreWrap">
-			<select id="genre">
-				<option value="all">전체장르</option>
-				<option value="판타지">판타지</option>
-				<option value="공포">공포</option>
-				<option value="로맨스/멜로">로맨스/멜로</option>
-				<option value="어드벤처">어드벤처</option>
-				<option value="스릴러">스릴러</option>
-				<option value="다큐멘터리">다큐멘터리</option>
-				<option value="코디미">코디미</option>
-				<option value="가족">가족</option>
-				<option value="미스터리">미스터리</option>
-				<option value="전쟁">전쟁</option>
-				<option value="애니메이션">애니메이션</option>
-				<option value="범죄">범죄</option>
-				<option value="뮤지컬">뮤지컬</option>
-				<option value="SF">SF</option>
-				<option value="액션">액션</option>
-			</select>
-		</div>
-	</div>
-	<div id="recommendResult"></div>
+		<section id="contentsWrap">
+			<ul class="nav nav-tabs nav-justified">
+			    <li><a href="../movieSearchHome">영화검색</a></li>
+			    <li class="active"><a href="#">영화추천</a></li>
+			</ul>
+			<div id="recommendCriteria">
+				<span id="genreRecommend" class="btn">장르별 추천영화</span> | 
+				<span id="yearRecommend" class="btn">년도별 추천영화</span> | 
+				<span id="ageRecommend" class="btn">나이별 추천영화</span> | 
+				<span id="weatherRecommend" class="btn">오늘날씨 추천영화</span> | 
+				<span id="groupRecommend" class="btn">커플끼리,가족끼리,혼자</span> | 
+				<span id="myRecommend" class="btn">내가 본 영화와 비슷한 영화</span> | 
+				<span id="reviewRecommend" class="btn">리뷰가 많은 영화</span> | 
+				<span id="jjimRecommend" class="btn">찜하기가 많은 영화</span> | 
+				<span id="recentRecommend" class="btn">개봉예정작</span>
+			</div>
+			<div id="recommendSubCriteria">
+				<div id="ageWrap">
+					<span class="age btn" id="10">10대</span>
+					<span class="age btn" id="20">20대</span>
+					<span class="age btn" id="30">30대</span>
+					<span class="age btn" id="40">40대</span>
+					<span class="age btn" id="50">50대 이상</span>
+				</div>
+				<div id="yearWrap">
+					<span class="year btn" id="1950">1960년대 이전</span>
+					<span class="year btn" id="1960">1960년대</span>
+					<span class="year btn" id="1970">1970년대</span>
+					<span class="year btn" id="1980">1980년대</span>
+					<span class="year btn" id="1990">1990년대</span>
+					<span class="year btn" id="2000">2000년대</span>
+					<span class="year btn" id="2010">2010년대</span>
+				</div>
+				<div id="groupWrap">
+					<span class="group btn" id="couple">커플끼리</span>
+					<span class="group btn" id="family">가족끼리</span>
+					<span class="group btn" id="friend">친구끼리</span>
+					<span class="group btn" id="alone">혼자</span>
+				</div>
+				<div id="genreWrap">
+					<select id="genre">
+						<option value="all">전체장르</option>
+						<option value="판타지">판타지</option>
+						<option value="공포">공포</option>
+						<option value="로맨스/멜로">로맨스/멜로</option>
+						<option value="어드벤처">어드벤처</option>
+						<option value="스릴러">스릴러</option>
+						<option value="다큐멘터리">다큐멘터리</option>
+						<option value="코디미">코디미</option>
+						<option value="가족">가족</option>
+						<option value="미스터리">미스터리</option>
+						<option value="전쟁">전쟁</option>
+						<option value="애니메이션">애니메이션</option>
+						<option value="범죄">범죄</option>
+						<option value="뮤지컬">뮤지컬</option>
+						<option value="SF">SF</option>
+						<option value="액션">액션</option>
+					</select>
+				</div>
+			</div>
+			<div id="recommendResult"></div>
+		</section>
 	</section>
 </body>
 </html>

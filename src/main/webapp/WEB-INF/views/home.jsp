@@ -7,8 +7,6 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <%@ include file="/resources/part/bootStrap.jspf" %>
 <link rel="styleSheet" type="text/css" href="${pageContext.request.contextPath}/resources/css/section.css">
-<link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet" type="text/css">
-<link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet" type="text/css">
 <title>Home</title>
 <script type="text/javascript">
 $(function(){	
@@ -162,7 +160,7 @@ body {
 
 	<div id="intro" class="container text-center">
 		<div class="title">
-			<p>소개하는 글 적기!!!뿡뿡~~~~</p>
+			<p>asd</p>
 		</div>
 		
 		<div class="contents">
