@@ -539,5 +539,4 @@ public class AdminController {
 
 		return "/admin/memberList";
 	}
-
 }
