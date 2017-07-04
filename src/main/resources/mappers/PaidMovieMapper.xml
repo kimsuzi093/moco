@@ -23,8 +23,11 @@
 		select count(num) from paidMovie where oname like '%'||#{search}||'%'
 	</select>
 	
-	<!-- kind를 위해 두가지 sql 문 쓴다 젠장 -->
+	<!-- movieRequest 연관 -->
 	<select id="basicSearch" parameterType="com.moco.movieAPI.BasicMovieDTO" resultType="com.moco.movieAPI.BasicMovieDTO">
 		select * from basicMovie where num=#{num} and title=#{title}
 	</select>
+	<delete id="movieRequestDelete" parameterType="com.moco.movieRequest.MovieRequestDTO">
+		delete from movieRequest where bnum=#{bNum} and lnum=#{lNum}
+	</delete>
 </mapper>

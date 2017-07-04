@@ -9,6 +9,7 @@ import org.apache.ibatis.session.SqlSession;
 import org.springframework.stereotype.Repository;
 
 import com.moco.movieAPI.BasicMovieDTO;
+import com.moco.movieRequest.MovieRequestDTO;
 
 @Repository
 public class PaidMovieDAO {
@@ -46,5 +47,8 @@ public class PaidMovieDAO {
 	public BasicMovieDTO basicSearch(BasicMovieDTO basicMovieDTO) throws Exception{
 		return sqlSession.selectOne(NAMESPACE+"basicSearch", basicMovieDTO);
 	}
-	
+	// movieRequestDelete
+	public int movieRequestDelete(MovieRequestDTO movieRequestDTO) throws Exception{
+		return sqlSession.delete(NAMESPACE+"movieRequestDelete", movieRequestDTO);
+	}
 }

@@ -61,7 +61,7 @@
 				<td><span class="titleSpan">DIRECTOR</span></td>
 				<td><span class="titleSpan">ACTOR</span></td>
 			</tr>	
-			<c:forEach items="${movieRequestList}" var="movie" varStatus="i">
+			<c:forEach items="${movieRequestList}" var="movie">
 				<tr>
 					<td>${movie.num}</td>
 					<td><input type="button" value="${movie.title}" id="${movie.num}" class="uploadGo btn btn-default" ></td>

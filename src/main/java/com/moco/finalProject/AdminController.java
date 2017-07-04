@@ -140,6 +140,10 @@ public class AdminController {
 
 		// DB
 		paidMovieService.movieInsert(paidMovieDTO);
+		
+		// 만일, movieRequest를 타고 와서 upload를 했을 시에는 movieRequestTable에서 삭제해 주어야 함.
+		paidMovieService.movieRequestDelete(paidMovieDTO);
+		
 		return "redirect:/admin/movieUpload";
 	}
 	// delete

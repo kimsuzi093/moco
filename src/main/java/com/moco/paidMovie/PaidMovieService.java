@@ -7,12 +7,21 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.moco.movieAPI.BasicMovieDTO;
+import com.moco.movieRequest.MovieRequestDTO;
 
 @Service
 public class PaidMovieService {
 
 	@Autowired
 	private PaidMovieDAO paidMovieDAO;
+	
+	// movieRequest에 있는 영화가 upload 된다면, movieReqeustTable에서 삭제하기
+	public int movieRequestDelete(PaidMovieDTO paidMovieDTO) throws Exception{
+		MovieRequestDTO movieRequestDTO = new MovieRequestDTO();
+		movieRequestDTO.setbNum(paidMovieDTO.getbNum());
+		movieRequestDTO.setlNum(paidMovieDTO.getlNum());
+		return paidMovieDAO.movieRequestDelete(movieRequestDTO);
+	}
 	
 	// Kind, num으로 어떤 영화인지 알아오기
 	public String kindFind(String movieTitle, int movieNum) throws Exception{
