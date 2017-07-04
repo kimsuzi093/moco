@@ -1,7 +1,7 @@
 @CHARSET "UTF-8";
 
 header {
-	width: 1200px;
+	width: 1200px; /* header width 같게하기 */
 	margin: 0 auto;
 }
 

@@ -9,22 +9,10 @@
 <script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.js"></script>
 <link rel="styleSheet" type="text/css" href="${pageContext.request.contextPath}/resources/css/header.css">
 <link rel="styleSheet" type="text/css" href="${pageContext.request.contextPath}/resources/css/section.css">
-<title>Insert title here</title>
+<link rel="styleSheet" type="text/css" href="${pageContext.request.contextPath}/resources/css/member.css">
 <title>Insert title here</title>
 <script type="text/javascript">
-
-$(function() {
-	$("#select").click(function(){
-		var select = $(this).value;
-
-		if(select == "phone") {
-			var result = 'PHONE<input type="text" class="form-control" name="search" required="required">';
-		} else {
-			var result = 'E-mail<input type="email" class="form-control" name="search" required="required">';
-		}
-		$("#choice").html(result);
-	})
-	
+$(function() {	
 	$("#id").keyup(function(){
 		var id = $(this).value;
 		
@@ -35,64 +23,68 @@ $(function() {
 		})
 	})
 });
-
 </script>
+
+<style type="text/css">
+.member_Table {
+ 	width: 400px;
+}
+</style>
+
 </head>
 <body>
+		<div class="container">
+			<h2 class="title">Member Search</h2>
 	
-	<%@ include file="/resources/part/header1.jspf" %>
+			<c:if test="${kind eq 'id'}">
+				<form action="memberSearchID" method="POST">
+					<table class="member_Table">
+						<tr>
+							<td class="name">NAME</td>
+							<td class="input"><input type="text" class="form-control" name="name" required="required"></td>
+						</tr>
 
-	<section>
-		<h2>Member Search</h2>
-		<c:if test="${kind eq 'id'}">
-		<form action="memberSearchID" method="POST">
-			<table class="table table-hover" style="width: 300px">
-				<tr>
-					<td>NAME<input type="text" class="form-control" name="name" required="required"></td>
-				</tr>
-				
-				<tr>
-					<td>인증수단<select name="select" id="select">
-						<option value="phone" selected="selected">PHONE</option>
-						<option value="email">EMAIL</option>
-					</select></td>
-				</tr>
-				
-				<tr>
-					<td><span id="choice">PHONE<input type="text" class="form-control" name="search" required="required"></span></td>
-				</tr>
-			</table>
-			<button class="btn btn-success">SEARCH</button>
-		</form>
-		</c:if>
-		
-		<c:if test="${kind eq 'password'}">
-		<form action="memberSearchPW" method="POST">
-			<table class="table table-hover" style="width: 300px">
-				<tr>
-					<td>ID<input type="text" class="form-control" name="id" id="id" required="required"></td>
-				</tr>
-				
-				<tr>
-					<td>E-mail<input type="email" class="form-control" name="email" required="required"></td>
-				</tr>
-				
-				<tr>
-					<td>QUESTION<br>
-						<span id="question"></span>
-					</td>
-				</tr>
-				
-				<tr>
-					<td>ANSWER<br>
-						<input type="text" class="form-control" name="answer" required="required">
-					</td>
-				</tr>
-			</table>
-			<button class="btn btn-success">SEARCH</button>
-		</form>
-		</c:if>
-	
-	</section>
+						<tr>
+							<td class="name">E-mail</td>
+							<td class="input"><input type="email" class="form-control" name="email" required="required"></td>
+						</tr>
+
+						<tr>
+							<td class="name" colspan="2"><button class="btn btn-success">SEARCH</button></td>
+						</tr>
+					</table>
+				</form>
+			</c:if>
+			
+			<c:if test="${kind eq 'password'}">
+				<form action="memberSearchPW" method="POST">
+					<table class="member_Table">
+						<tr>
+							<td class="name">ID</td>
+							<td class="push"><input type="text" class="form-control" name="id" id="id" required="required"></td>
+						</tr>
+						
+						<tr>
+							<td class="name">QUESTION</td>
+							<td class="result"><span id="question"></span></td>
+						</tr>
+						
+						<tr>
+							<td class="name">ANSWER</td>
+							<td class=push><input type="text" class="form-control" name="answer" required="required"></td>
+						</tr>
+						
+						<tr>
+							<td class="name">E-mail</td>
+							<td class="push"><input type="email" class="form-control" name="email" required="required"></td>
+						</tr>
+						
+						<tr>
+							<td class="name" colspan="2"><button class="btn btn-success">SEARCH</button></td>
+						</tr>
+					</table>
+				</form>
+			</c:if>
+		</div>
 </body>
 </html>
