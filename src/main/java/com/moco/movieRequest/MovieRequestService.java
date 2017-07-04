@@ -18,16 +18,20 @@ public class MovieRequestService {
 	private MovieRequestDAO movieRequestDAO;
 
 	// movieRequestForList
-	public List<MovieRequestDTO> movieRequestForList() throws Exception{
-		return movieRequestDAO.movieRequestForList();
+	public List<MovieRequestDTO> movieRequestForList(Map<String, Object> map) throws Exception{
+		return movieRequestDAO.movieRequestForList(map);
 	}
 	// List
-	public List<BasicMovieDTO> movieRequestList() throws Exception{
+	public List<BasicMovieDTO> movieRequestList(int curPage) throws Exception{
+		Map<String, Object> map = new HashMap<String, Object>();
 		BasicMovieDTO basicMovieDTO = null;
 		//	실질적인 list 반환
 		List<BasicMovieDTO> ar = new ArrayList<BasicMovieDTO>();
 		// num 들을 꺼내와서 각각의 list를 불러내자.
-		List<MovieRequestDTO> nums = this.movieRequestForList();
+		RowMaker rowMaker = new RowMaker();
+		rowMaker.makeRow(curPage, 10);
+		map.put("row", rowMaker);
+		List<MovieRequestDTO> nums = this.movieRequestForList(map);
 		for (MovieRequestDTO movieRequestDTO : nums) {
 			// basicMovie
 			if(movieRequestDTO.getlNum() == 0){

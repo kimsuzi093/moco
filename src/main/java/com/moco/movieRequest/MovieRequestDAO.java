@@ -17,8 +17,8 @@ public class MovieRequestDAO {
 	private static final String NAMESPACE = "MovieRequestMapper.";
 	
 	// ForList
-	public List<MovieRequestDTO> movieRequestForList() throws Exception{
-		return sqlSession.selectList(NAMESPACE+"movieRequestForList");
+	public List<MovieRequestDTO> movieRequestForList(Map<String, Object> map) throws Exception{
+		return sqlSession.selectList(NAMESPACE+"movieRequestForList", map);
 	}
 	public BasicMovieDTO basicMovieList(int num) throws Exception{
 		return sqlSession.selectOne(NAMESPACE+"basicMovieList", num);

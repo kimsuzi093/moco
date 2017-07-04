@@ -38,6 +38,9 @@
 		<a href="./memberList">memberList</a>&nbsp;
 		<span class="badge">${memberStateCount}</span>
 	</p>
+	<p>
+		<a href="movieRequestList">MovieRequest</a>
+	</p>
 	<p><a href="../">HOME</a></p>
 	
 </body>

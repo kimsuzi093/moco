@@ -63,8 +63,16 @@ public class AdminController {
 	// movieRequest
 	@RequestMapping(value="movieRequestList",method=RequestMethod.GET)
 	public void movieRequest(Integer curPage, Model model) throws Exception{
-		List<BasicMovieDTO> ar = movieRequestService.movieRequestList();
+		if(curPage == null){
+			curPage = 1;
+		}
+		// list
+		List<BasicMovieDTO> ar = movieRequestService.movieRequestList(curPage);
 		model.addAttribute("movieRequestList", ar);
+		// 페이징
+		PageMaker pageMaker = new PageMaker(curPage, 10);
+		PageResult pageResult = pageMaker.paging(movieRequestService.movieRequestTotalCount());
+		model.addAttribute("pageResult", pageResult);
 	}
 	
 	////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
