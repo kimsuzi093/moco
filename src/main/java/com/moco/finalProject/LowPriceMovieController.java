@@ -209,17 +209,20 @@ public class LowPriceMovieController {
 		return "movie/lowpricemovie/theaterList";	
 	}
 	
-	/*
+	
 	//상영관 정보
 	//상영정보(영화, 상영시작, 상영종료)까지 뿌려줘야함
 	//그래서 거기서 영화 누르면 영화정보로 갈수 있게끔.
 	@RequestMapping(value="theaterView", method=RequestMethod.GET)
-	public String theaterView(int num, Model model){
+	public String theaterView(int num, Model model) throws Exception{
 		TheaterDTO theaterDTO = lowPriceMovieService.theaterView(num);
-		model.addAttribute("theaterDTO", theaterDTO);
+		List<MultiplexDTO> ar = lowPriceMovieService.multiplexList(num);
+		model.addAttribute("theater", theaterDTO);
+		model.addAttribute("multiplexList", ar);
 		return "movie/lowpricemovie/theaterView";
 	}
 	
+	/*
 	//상영관 수정(관리자)
 	@RequestMapping(value="theaterUpdate", method=RequestMethod.GET)
 	public String theaterUpdate(int num, Model model){

@@ -27,12 +27,12 @@
 		<div class="tb_wrap">
 			<table>
 				<tr>
-					<td>NUM</td><td>극장명</td><td>주소</td><td>문의전화</td>
+					<td>글번호</td><td>극장명</td><td>주소</td><td>문의전화</td>
 				</tr>
 				<c:forEach items="${list }" var="list">
 					<c:if test="${list.commit eq 1}">
 						<tr>
-							<td>${list.num }</td><td><a href="">${list.name}</a></td><td>${list.location}</td><td>${list.phone}</td>
+							<td>${list.num }</td><td><a href="theaterView?num=${list.num }">${list.name}</a></td><td>${list.location}</td><td>${list.phone}</td>
 						</tr>
 					</c:if>
 				</c:forEach>

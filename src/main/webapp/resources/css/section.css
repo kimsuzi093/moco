@@ -8,8 +8,8 @@ section{
 	height: auto;
 	/* background-image: url("../img/section.jpg");
 	background-size: cover; */
+	background-color: #ffd699;
 	z-index: -1;
-	content:"";
 }
 
 /* section {

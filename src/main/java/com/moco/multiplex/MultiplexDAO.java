@@ -20,7 +20,10 @@ public class MultiplexDAO {
 		return ar;
 	}
 	
+	//NUM필드로
 	public MultiplexDTO view(int num) throws Exception{
 		return sqlSession.selectOne(NAMESPACE+"view", num);
 	}
+	
+	
 }

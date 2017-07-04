@@ -48,17 +48,14 @@ public class LowPriceMovieService {
 		
 		return map;
 	}
-	
 	//영화 VIEW
 	public LowPriceMovieDTO view(int num) throws Exception{
 		return lowPriceMovieDAO.view(num);
 	}
-	
 	//영화 delete
 	public int delete(int num) throws Exception{
 		return lowPriceMovieDAO.delete(num);
 	}
-	
 	//영화 insert
 	public int insert(LowPriceMovieDTO lowPriceMovieDTO) throws Exception{
 		return lowPriceMovieDAO.insert(lowPriceMovieDTO);
@@ -80,29 +77,23 @@ public class LowPriceMovieService {
 		map.put("pageResult", pageResult);
 		
 		return map;
-		
 	}
-	
 	//해당 극장의 상영관 LIST
 	public List<MultiplexDTO> multiplexList(int theater_num) throws Exception{
 		return multiplexDAO.list(theater_num);
 	}
-	
 	//상영관 등록신청( 극장과 상영관 )
 	public int theaterRequest(TheaterDTO theaterDTO, MultiplexDTO multiplexDTO) throws Exception{
 		return theaterDAO.insert(theaterDTO, multiplexDTO);
 	}
-	
-	//상영관 VIEW
+	//상영관 VIEW(NUM필드로)
 	public MultiplexDTO multiplexView(int num) throws Exception{
 		return multiplexDAO.view(num);
 	}
-	
 	//극장 VIEW
 	public TheaterDTO theaterView(int num) throws Exception{
 		return theaterDAO.view(num);
 	}
-	
 	//영화를 상영관에서 틀고싶다고 등록신청
 	public void theaterInsert(int movie_num, Integer[] multi_num, Date[] start_date, Date[] end_date) throws Exception{
 		//상영하려는 영화는 다 똑같으므로.
@@ -111,7 +102,6 @@ public class LowPriceMovieService {
 		//극장 구하기 위한 MultiplexDTO = 어떤 상영관이라도 극장은 같다를 이용.
 		MultiplexDTO commonMultiplexDTO = this.multiplexView(multi_num[0]);
 		TheaterDTO theaterDTO = this.theaterView(commonMultiplexDTO.getTheater_num());
-		
 		
 		//상영관 숫자만큼 for문 돌려야하니까.
 		//근데 상영관 선택한것당 start_date랑 end_date니까. gab은 그 상영관에서의 상영일수.
@@ -160,7 +150,6 @@ public class LowPriceMovieService {
 		}
 
 	}
-	
 	private List<Integer> timeCal(Date show_date, String opening_time, String play_time){
 		//영화 상영시간
 		play_time = play_time.substring(0, play_time.lastIndexOf("분"));
@@ -171,7 +160,6 @@ public class LowPriceMovieService {
 		int opening_h = Integer.parseInt(opening_time.substring(0, 2));
 		//분
 		int opening_m = Integer.parseInt(opening_time.substring(3, 5));
-		
 		
 		SimpleDateFormat sdf = new SimpleDateFormat("dd일HH:mm");
 		//시간 더하기
@@ -208,17 +196,17 @@ public class LowPriceMovieService {
 			ar.add(hour);
 			ar.add(minute);
 		}
-		
 		return ar;
-		
 	}
-	
 	//상영시작~종료일시 돌릴때 필요한 메서드
 	private String toString(Calendar ca){
 		String str = ca.get(Calendar.YEAR)+"-"+(ca.get(Calendar.MONTH)+1)+"-"+ca.get(Calendar.DATE);
 
 		return str;
 	}
+	
+	
+	
 	
 	// 찜하기 확인
 	public JjimDTO jjimCheck(JjimDTO jjimDTO) throws Exception{
