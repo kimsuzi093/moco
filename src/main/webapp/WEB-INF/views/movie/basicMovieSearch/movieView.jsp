@@ -345,6 +345,11 @@
     .reviewUpdateStar:hover{
     	background-color : rgba(192,192,192,0.3);
     }
+    #movieInfo .btn{
+    	height: 26px;
+    	font-size: 8px;
+    	margin-left: 5px;
+    }
 </style>
 </head>
 <body>
@@ -355,13 +360,16 @@
 			<img src="${movieDTO.thumnail }">
 		</div>
 		<div id="movieInfo" title="${movieDTO.num }">
-			<p>${movieDTO.title }</p>
+			<span style="font-size: 25px;">${movieDTO.title }
+				<button class="btn" id="${requestMessage }">${requestMessage }</button>
+			</span>
+			
 			<p>${movieDTO.eng_title }</p>
 			<span class="star-rating">
 				<span style="width: ${movieDTO.user_rating*10}%"></span>
 			</span>
 			<span>${movieDTO.user_rating }/10 (${review_count }명 참여)</span>
-			<p><strong>개요</strong> ${movieDTO.genre } | ${movieDTO.nation } | ${movieDTO.play_time } | ${movieDTO.pub_date }개봉</p>
+			<p style="margin-top: 10px;"><strong>개요</strong> ${movieDTO.genre } | ${movieDTO.nation } | ${movieDTO.play_time } | ${movieDTO.pub_date }개봉</p>
 			<p><strong>감독</strong> ${movieDTO.director }</p>
 			<p><strong>주연</strong> ${movieDTO.actor }</p>
 			<p><strong>등급</strong> ${movieDTO.watching_rate }</p>

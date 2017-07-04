@@ -20,6 +20,8 @@ import com.moco.movieAPI.BasicMovieService;
 import com.moco.movieAPI.movieSearch.SearchDTO;
 import com.moco.movieRequest.MovieRequestDTO;
 import com.moco.movieRequest.MovieRequestService;
+import com.moco.paidMovie.PaidMovieDTO;
+import com.moco.paidMovie.PaidMovieService;
 import com.moco.util.PageMaker;
 import com.moco.util.PageResult;
 import com.moco.util.RowMaker;
@@ -31,6 +33,8 @@ public class BasicMovieController {
 	BasicMovieService basicMovieService;
 	@Inject
 	MovieRequestService movieRequestService;
+	@Inject
+	PaidMovieService paidMovieService;
 
 	@RequestMapping(value = "movieSearchHome", method = RequestMethod.GET)
 	public void movieSearchHome(Model model){
@@ -111,7 +115,9 @@ public class BasicMovieController {
 		BasicMovieDTO basicMovieDTO = new BasicMovieDTO();
 		JjimDTO jjimDTO = null;
 		int review_count = 0;
+		// 신청하기, 보러가기, 접수중
 		MovieRequestDTO movieRequestDTO = null;
+		PaidMovieDTO paidMovieDTO = null;
 		try {
 			basicMovieDTO = basicMovieService.view(num);
 			JjimDTO testJjim = new JjimDTO();
@@ -120,17 +126,19 @@ public class BasicMovieController {
 			jjimDTO = basicMovieService.jjimCheck(testJjim);
 			review_count = basicMovieService.reviewCount(num);
 
-			
-			// 신청하기, 보러가기, -
-			Map<String, Object> sub_map = new HashMap<String, Object>();
-			sub_map.put("kind","bNum");
-			sub_map.put("bNum", num);
-			movieRequestDTO = movieRequestService.movieRequestSelectOne(sub_map);
-			if(movieRequestDTO != null){
-				model.addAttribute("requestMessage", "접수중");
+			// 신청하기, 보러가기, 접수중
+			Map<String, Object> check_map = new HashMap<String, Object>();
+			check_map.put("kind", "bNum");
+			check_map.put("num", num);
+			paidMovieDTO = paidMovieService.paidMovieSelectOne(check_map);
+			movieRequestDTO = movieRequestService.movieRequestSelectOne(check_map);
+			if(paidMovieDTO != null){ // 보러가기
+				model.addAttribute("requestMessage", "영화보러가기");
+			}else if(paidMovieDTO == null & movieRequestDTO != null){ // 접수중
+				model.addAttribute("requestMessage", "영화등록중");
+			}else{ // 신청하기
+				model.addAttribute("requestMessage", "영화신청하기");
 			}
-
-			/*MovieRequestDTO = */
 
 		} catch (Exception e) {
 			

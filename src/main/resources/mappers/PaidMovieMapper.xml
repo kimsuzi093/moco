@@ -22,4 +22,14 @@
 	<select id="movieTotalCount" resultType="java.lang.Integer" parameterType="java.lang.String">
 		select count(num) from paidMovie where oname like '%'||#{search}||'%'
 	</select>
+	<!-- SUZI -->
+	<select id="paidMovieSelectOne" parameterType="java.util.Map" resultType="com.moco.paidMovie.PaidMovieDTO">
+		select * from paidmovie 
+		<if test="kind == 'bNum'">
+			where bNum=#{num}
+		</if>
+		<if test="kind == 'lNum'">
+			where lNum=#{num}
+		</if>
+	</select>
 </mapper>

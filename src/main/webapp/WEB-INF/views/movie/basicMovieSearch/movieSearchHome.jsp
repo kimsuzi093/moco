@@ -79,7 +79,7 @@
 	}
 	/* 별점 */
 	.star-rating{ 
-		width: 100px; 
+		width: 100px;
 	}
 	.star-rating,.star-rating span{ 
 		display:inline-block; 
