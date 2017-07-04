@@ -1,6 +1,7 @@
 package com.moco.finalProject;
 
 import java.sql.Date;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -28,6 +29,18 @@ public class LowPriceMovieController {
 	
 	@Autowired
 	private LowPriceMovieService lowPriceMovieService;
+	
+	// SEARCH HOME
+	@RequestMapping(value = "lowpricemovieSearchHome", method = RequestMethod.GET)
+	public void movieSearchHome(Model model){
+		/*List<String> nationList = new ArrayList<String>();
+		try {
+			nationList = basicMovieService.nationList();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		model.addAttribute("nationList", nationList);*/
+	}
 	
 	//MOVIE LIST
 	@RequestMapping(value="lowpricemovieList", method=RequestMethod.GET)
