@@ -161,7 +161,7 @@ body {
 
 	<div id="intro" class="container text-center">
 		<div class="title">
-			<p>소개하는 글 적기!!!</p>
+			<p>소개하는 글 적기!!!뿡뿡~~~~</p>
 		</div>
 		
 		<div class="contents">
@@ -185,7 +185,7 @@ body {
 				<button class="menu right" id="right"></button>
 			</c:if>
 		</div>
-	
+
 		<!-- Modal -->
 		<div class="modal fade" id="myModal" role="dialog">
 			<div class="modal-dialog">

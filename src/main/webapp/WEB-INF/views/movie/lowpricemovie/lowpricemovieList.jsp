@@ -13,7 +13,7 @@
 	$(function(){
 		
 		$("#write").click(function(){
-			location.href="./insert";
+			location.href="./lowpricemovieInsert";
 		});
 		
 		$("#home").click(function(){
@@ -61,8 +61,9 @@
 				<div class="profile">
 					TITLE : <a href="./lowpricemovieView?num=${list.num}">${list.title }</a>
 					개봉일 : ${list.pub_date } 
-					<a href="./lowpricemovieView?num=${list.num}"><img src="${list.thumnail}"	class="img-responsive" style="width: 270px; height: 270px;"	alt="Image"></a>
+					<a href="./lowpricemovieView?num=${list.num}"><img src="<!-- ../../resources/upload/lowpricemovie/ -->${list.thumnail}"	class="img-responsive" style="width: 270px; height: 270px;"	alt="Image"></a>
 				</div>
+				
 			</c:forEach>
 		</div>
 		
