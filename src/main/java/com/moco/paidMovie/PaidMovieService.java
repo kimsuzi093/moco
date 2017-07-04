@@ -14,10 +14,7 @@ public class PaidMovieService {
 
 	@Autowired
 	private PaidMovieDAO paidMovieDAO;
-<<<<<<< HEAD
 
-=======
-	
 	// movieRequest에 있는 영화가 upload 된다면, movieReqeustTable에서 삭제하기
 	public int movieRequestDelete(PaidMovieDTO paidMovieDTO) throws Exception{
 		MovieRequestDTO movieRequestDTO = new MovieRequestDTO();
@@ -39,7 +36,6 @@ public class PaidMovieService {
 		return movieKind;
 	}
 	
->>>>>>> 9f48cf1da25f7f8893543e60f801389247b89644
 	// movieKind별로 DTO 셋팅
 	public PaidMovieDTO DTOSet(PaidMovieDTO paidMovieDTO, String movieKind, int movieNum) throws Exception{
 		if(movieKind.equals("basicMovie")){

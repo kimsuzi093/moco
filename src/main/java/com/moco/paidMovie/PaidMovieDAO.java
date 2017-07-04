@@ -42,13 +42,12 @@ public class PaidMovieDAO {
 	public int movieTotalCount(String search) throws Exception{
 		return sqlSession.selectOne(NAMESPACE+"movieTotalCount", search);
 	}
-<<<<<<< HEAD
+
 	// movieSelectOne(bNum, lNum)
 	public PaidMovieDTO paidMovieSelectOne(Map<String, Object> map) throws Exception{
 		return sqlSession.selectOne(NAMESPACE+"paidMovieSelectOne", map);
 	}
 	
-=======
 
 	// basicSearch
 	public BasicMovieDTO basicSearch(BasicMovieDTO basicMovieDTO) throws Exception{
@@ -58,5 +57,5 @@ public class PaidMovieDAO {
 	public int movieRequestDelete(MovieRequestDTO movieRequestDTO) throws Exception{
 		return sqlSession.delete(NAMESPACE+"movieRequestDelete", movieRequestDTO);
 	}
->>>>>>> 9f48cf1da25f7f8893543e60f801389247b89644
+
 }

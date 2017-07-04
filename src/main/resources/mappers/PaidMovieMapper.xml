@@ -22,7 +22,6 @@
 	<select id="movieTotalCount" resultType="java.lang.Integer" parameterType="java.lang.String">
 		select count(num) from paidMovie where oname like '%'||#{search}||'%'
 	</select>
-<<<<<<< HEAD
 	<!-- SUZI -->
 	<select id="paidMovieSelectOne" parameterType="java.util.Map" resultType="com.moco.paidMovie.PaidMovieDTO">
 		select * from paidmovie 
@@ -33,7 +32,6 @@
 			where lNum=#{num}
 		</if>
 	</select>
-=======
 	
 	<!-- movieRequest 연관 -->
 	<select id="basicSearch" parameterType="com.moco.movieAPI.BasicMovieDTO" resultType="com.moco.movieAPI.BasicMovieDTO">
@@ -42,5 +40,4 @@
 	<delete id="movieRequestDelete" parameterType="com.moco.movieRequest.MovieRequestDTO">
 		delete from movieRequest where bnum=#{bNum} and lnum=#{lNum}
 	</delete>
->>>>>>> 9f48cf1da25f7f8893543e60f801389247b89644
 </mapper>
