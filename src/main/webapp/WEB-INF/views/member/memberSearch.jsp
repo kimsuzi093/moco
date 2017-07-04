@@ -43,59 +43,56 @@ $(function() {
 	<%@ include file="/resources/part/header1.jspf" %>
 
 	<section>
-	<h2>Member Search</h2>
-	<c:if test="${kind eq 'id'}">
-	<form action="memberSearchID" method="POST">
-		<table class="table table-hover" style="width: 300px">
-			<tr>
-				<td>NAME<input type="text" class="form-control" name="name" required="required"></td>
-			</tr>
-			
-			<tr>
-				<td>인증수단<select name="select" id="select">
-					<option value="phone" selected="selected">PHONE</option>
-					<option value="email">EMAIL</option>
-				</select></td>
-			</tr>
-			
-			<tr>
-				<td><span id="choice">PHONE<input type="text" class="form-control" name="search" required="required"></span></td>
-			</tr>
-		</table>
-		<button>OK</button>
-		<input type="button" id="btn1" class="btn btn-success" value="SEARCH">
-	</form>
-	</c:if>
-	
-	<c:if test="${kind eq 'password'}">
-	<form action="memberSearchPW" method="POST">
-		<table class="table table-hover" style="width: 300px">
-			<tr>
-				<td>ID<input type="text" class="form-control" name="id" id="id" required="required"></td>
-			</tr>
-			
-			<tr>
-				<td>E-mail<input type="email" class="form-control" name="email" required="required"></td>
-			</tr>
-			
-			<tr>
-				<td>QUESTION<br>
-					<span id="question"></span>
-				</td>
-			</tr>
-			
-			<tr>
-				<td>ANSWER<br>
-					<input type="text" class="form-control" name="answer" required="required">
-				</td>
-			</tr>
-		</table>
-		<button>OK</button>
-	</form>
-	</c:if>
+		<h2>Member Search</h2>
+		<c:if test="${kind eq 'id'}">
+		<form action="memberSearchID" method="POST">
+			<table class="table table-hover" style="width: 300px">
+				<tr>
+					<td>NAME<input type="text" class="form-control" name="name" required="required"></td>
+				</tr>
+				
+				<tr>
+					<td>인증수단<select name="select" id="select">
+						<option value="phone" selected="selected">PHONE</option>
+						<option value="email">EMAIL</option>
+					</select></td>
+				</tr>
+				
+				<tr>
+					<td><span id="choice">PHONE<input type="text" class="form-control" name="search" required="required"></span></td>
+				</tr>
+			</table>
+			<button class="btn btn-success">SEARCH</button>
+		</form>
+		</c:if>
+		
+		<c:if test="${kind eq 'password'}">
+		<form action="memberSearchPW" method="POST">
+			<table class="table table-hover" style="width: 300px">
+				<tr>
+					<td>ID<input type="text" class="form-control" name="id" id="id" required="required"></td>
+				</tr>
+				
+				<tr>
+					<td>E-mail<input type="email" class="form-control" name="email" required="required"></td>
+				</tr>
+				
+				<tr>
+					<td>QUESTION<br>
+						<span id="question"></span>
+					</td>
+				</tr>
+				
+				<tr>
+					<td>ANSWER<br>
+						<input type="text" class="form-control" name="answer" required="required">
+					</td>
+				</tr>
+			</table>
+			<button class="btn btn-success">SEARCH</button>
+		</form>
+		</c:if>
 	
 	</section>
-	
-	<%@ include file="/resources/part/footer.jspf" %>
 </body>
 </html>
