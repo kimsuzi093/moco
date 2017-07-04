@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.moco.member.MemberDTO;
+import com.moco.movieAPI.Json.JsonMain;
 
 /**
  * Handles requests for the application home page.
@@ -36,10 +37,6 @@ public class HomeController {
 		String formattedDate = dateFormat.format(date);
 		
 		model.addAttribute("serverTime", formattedDate );
-		
-		/*MemberDTO memberDTO = new MemberDTO();
-		memberDTO.setId("admin");
-		session.setAttribute("memberDTO", memberDTO);*/
 		
 		return "home";
 	}

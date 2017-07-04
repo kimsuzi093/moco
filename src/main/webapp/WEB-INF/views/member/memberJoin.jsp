@@ -137,9 +137,6 @@ $(function() {
 
 </head>
 <body>
-	<%@ include file="/resources/part/header1.jspf" %>
-
-	<section>
 		<div class="container">
 			<h2 class="title">Member Join</h2>
 
@@ -231,6 +228,5 @@ $(function() {
 				
 			</form>
 		</div>
-	</section>
 </body>
 </html>

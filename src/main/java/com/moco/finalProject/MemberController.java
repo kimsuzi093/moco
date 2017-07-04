@@ -319,7 +319,7 @@ public class MemberController {
 			String contents = "회원님의 PW 는 "+message+" 입니다.";
 			mailService.sendMail(from, to, subject, contents);
 			redirectAttributes.addFlashAttribute("message", "회원님의 비밀번호를 이메일로 전송해드렸습니다.");
-		} else {
+		} else if(message == null) {
 			redirectAttributes.addFlashAttribute("message", "회원 정보를 찾을 수 없습니다.");
 		}
 

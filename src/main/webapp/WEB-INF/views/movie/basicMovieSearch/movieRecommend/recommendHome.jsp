@@ -163,7 +163,6 @@
 </head>
 <body>
 	<%@ include file="/resources/part/header1.jspf" %>
-	<section>
 		<section id="contentsWrap">
 			<ul class="nav nav-tabs nav-justified">
 			    <li><a href="../movieSearchHome">영화검색</a></li>
@@ -226,6 +225,5 @@
 			</div>
 			<div id="recommendResult"></div>
 		</section>
-	</section>
 </body>
 </html>

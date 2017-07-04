@@ -12,7 +12,6 @@
 <link rel="styleSheet" type="text/css" href="${pageContext.request.contextPath}/resources/css/member.css">
 <title>Insert title here</title>
 <script type="text/javascript">
-
 $(function() {	
 	$("#id").keyup(function(){
 		var id = $(this).value;
@@ -24,29 +23,30 @@ $(function() {
 		})
 	})
 });
-
 </script>
+
+<style type="text/css">
+.member_Table {
+ 	width: 400px;
+}
+</style>
 
 </head>
 <body>
-	
-	<%@ include file="/resources/part/header1.jspf" %>
-
-	<section>
 		<div class="container">
 			<h2 class="title">Member Search</h2>
 	
 			<c:if test="${kind eq 'id'}">
 				<form action="memberSearchID" method="POST">
-					<table class="member_Table" style="width: 300px">
+					<table class="member_Table">
 						<tr>
-							<td>NAME</td>
-							<td><input type="text" class="form-control" name="name" required="required"></td>
+							<td class="name">NAME</td>
+							<td class="input"><input type="text" class="form-control" name="name" required="required"></td>
 						</tr>
 
 						<tr>
-							<td>E-mail</td>
-							<td><input type="email" class="form-control" name="email" required="required"></td>
+							<td class="name">E-mail</td>
+							<td class="input"><input type="email" class="form-control" name="email" required="required"></td>
 						</tr>
 
 						<tr>
@@ -58,25 +58,25 @@ $(function() {
 			
 			<c:if test="${kind eq 'password'}">
 				<form action="memberSearchPW" method="POST">
-					<table class="table table-hover" style="width: 300px">
+					<table class="member_Table">
 						<tr>
-							<td>ID</td>
-							<td><input type="text" class="form-control" name="id" id="id" required="required"></td>
+							<td class="name">ID</td>
+							<td class="push"><input type="text" class="form-control" name="id" id="id" required="required"></td>
 						</tr>
 						
 						<tr>
-							<td>E-mail</td>
-							<td><input type="email" class="form-control" name="email" required="required"></td>
+							<td class="name">QUESTION</td>
+							<td class="result"><span id="question"></span></td>
 						</tr>
 						
 						<tr>
-							<td>QUESTION<td>
-							<td><span id="question"></span></td>
+							<td class="name">ANSWER</td>
+							<td class=push><input type="text" class="form-control" name="answer" required="required"></td>
 						</tr>
 						
 						<tr>
-							<td>ANSWER</td>
-							<td><input type="text" class="form-control" name="answer" required="required"></td>
+							<td class="name">E-mail</td>
+							<td class="push"><input type="email" class="form-control" name="email" required="required"></td>
 						</tr>
 						
 						<tr>
@@ -86,6 +86,5 @@ $(function() {
 				</form>
 			</c:if>
 		</div>
-	</section>
 </body>
 </html>
