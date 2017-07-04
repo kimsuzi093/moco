@@ -1,8 +1,6 @@
 package com.moco.finalProject;
 
 import java.sql.Date;
-import java.text.SimpleDateFormat;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -16,11 +14,11 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.moco.fileTest.FileSaver;
-import com.moco.lowpricemovie.LowPriceMovieDAO;
+import com.moco.jjim.JjimDTO;
 import com.moco.lowpricemovie.LowPriceMovieDTO;
 import com.moco.lowpricemovie.LowPriceMovieService;
+import com.moco.member.MemberDTO;
 import com.moco.multiplex.MultiplexDTO;
-import com.moco.screen.ScreenDTO;
 import com.moco.theater.TheaterDTO;
 
 @Controller
@@ -166,13 +164,28 @@ public class LowPriceMovieController {
 		return "redirect:/";
 	}
 	
+	// 찜
+	@RequestMapping(value = "jjim", method = RequestMethod.GET)
+	public void jjim(boolean flag, int lNum, HttpSession session){
+		JjimDTO jjimDTO = new JjimDTO();
+		jjimDTO.setId(((MemberDTO)session.getAttribute("memberDTO")).getId());
+		jjimDTO.setlNum(lNum);
+		try{
+			if(flag){
+				lowPriceMovieService.jjimInsert(jjimDTO);
+			}else{
+				lowPriceMovieService.jjimDelete(jjimDTO);
+			}
+		}catch(Exception e){
+			e.printStackTrace();
+		}
+	}
 	
 	
 	
-	/*
 	//상영관 리스트
 	@RequestMapping(value="theaterList", method=RequestMethod.GET)
-	public String theaterList(Integer curPage, Integer perPage, String kind, String search, Model model){
+	public String theaterList(Integer curPage, Integer perPage, String kind, String search, Model model) throws Exception{
 		if(curPage == null){
 			curPage = 1;
 		}
@@ -186,6 +199,7 @@ public class LowPriceMovieController {
 			search="%";
 		}
 		Map<String, Object> map = lowPriceMovieService.theaterList(curPage, perPage, kind, search);
+		
 		model.addAttribute("list", map.get("list"));
 		model.addAttribute("pageResult", map.get("pageResult"));
 		model.addAttribute("curPage", curPage);
@@ -195,6 +209,7 @@ public class LowPriceMovieController {
 		return "movie/lowpricemovie/theaterList";	
 	}
 	
+	/*
 	//상영관 정보
 	//상영정보(영화, 상영시작, 상영종료)까지 뿌려줘야함
 	//그래서 거기서 영화 누르면 영화정보로 갈수 있게끔.
