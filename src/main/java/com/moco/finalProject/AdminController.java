@@ -58,6 +58,8 @@ public class AdminController {
 		model.addAttribute("memberStateCount", memberService.adminStateCount());
 		// 배급사 신청 - 대기중
 		model.addAttribute("agencyCommitCount", agencyService.agencyUncommitCount());
+		// movieRequest - 요청 중
+		model.addAttribute("movieRequest", movieRequestService.movieRequestTotalCount());
 	}
 
 	// movieRequest

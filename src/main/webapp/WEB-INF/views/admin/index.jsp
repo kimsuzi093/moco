@@ -39,7 +39,8 @@
 		<span class="badge">${memberStateCount}</span>
 	</p>
 	<p>
-		<a href="movieRequestList">MovieRequest</a>
+		<a href="./movieRequestList">MovieRequest</a>
+		<span class="badge">${movieRequest}</span>
 	</p>
 	<p><a href="../">HOME</a></p>
 	

@@ -6,7 +6,21 @@ public class PaidMovieDTO {
 	private int price;
 	private String fname;
 	private String oname;
+	private int bNum;
+	private int lNum;
 	
+	public int getbNum() {
+		return bNum;
+	}
+	public void setbNum(int bNum) {
+		this.bNum = bNum;
+	}
+	public int getlNum() {
+		return lNum;
+	}
+	public void setlNum(int lNum) {
+		this.lNum = lNum;
+	}
 	public int getNum() {
 		return num;
 	}

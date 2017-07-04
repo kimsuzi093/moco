@@ -160,14 +160,24 @@
 	        <div class="modal-body">
 	          <table>
 	          	<tr class="formTR">
-	          		<td class="titleTD"><span class="titleSpan">MOVIE</span></td>
-					<td class="contentsTD"><input type="file" name="movie" id="file" class="form-control"></td>
-					<td class="lastTD"><span id="x" class="titleSpan">X</span></td>
+	          		<td class="titleTD"><span class="titleSpan">NUM</span></td>
+					<td class="contentsTD"><input type="number" name="movieNum" class="form-control"></td>
+					<td class="lastTD">
+						<select name="movieKind">
+							<option value="basicMovie">일반 영화</option>
+							<option value="lowPriceMovie">저예산 영화</option>
+						</select>
+					</td>
 	          	</tr>
 	          	<tr class="formTR">
 	          		<td class="titleTD"><span class="titleSpan">PRICE</span></td>
 					<td class="contentsTD"><input type="number" name="price" class="form-control"></td>
 					<td class="lastTD"></td>
+	          	</tr>
+	          	<tr class="formTR">
+	          		<td class="titleTD"><span class="titleSpan">MOVIE</span></td>
+					<td class="contentsTD"><input type="file" name="movie" id="file" class="form-control"></td>
+					<td class="lastTD"><span id="x" class="titleSpan">X</span></td>
 	          	</tr>
 	          </table>
 	        </div>
