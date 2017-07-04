@@ -23,6 +23,7 @@ $(function(){
 		
 		if(go == "left"){
 			location.href="./movie/movieHome";	//주소를 영화 인덱스로
+			window.open("${pageContext.request.contextPath}/movie/movieSchedule/movieScheduleTable", "actity", "width=1200, height=800, left=300, top=100");
 		} else if(go == "right"){
 			location.href="./user/userHome";	//주소를 배우 인덱스로.
 		}
