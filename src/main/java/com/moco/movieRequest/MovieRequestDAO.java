@@ -6,6 +6,9 @@ import javax.inject.Inject;
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.stereotype.Repository;
 
+import com.moco.lowpricemovie.LowPriceMovieDTO;
+import com.moco.movieAPI.BasicMovieDTO;
+
 @Repository
 public class MovieRequestDAO {
 
@@ -13,9 +16,15 @@ public class MovieRequestDAO {
 	private SqlSession sqlSession;
 	private static final String NAMESPACE = "MovieRequestMapper.";
 	
-	// list
-	public List<MovieRequestDTO> movieRequestList(Map<String, Object> map) throws Exception{
-		return sqlSession.selectList(NAMESPACE+"movieRequestList", map);
+	// ForList
+	public List<MovieRequestDTO> movieRequestForList() throws Exception{
+		return sqlSession.selectList(NAMESPACE+"movieRequestForList");
+	}
+	public BasicMovieDTO basicMovieList(int num) throws Exception{
+		return sqlSession.selectOne(NAMESPACE+"basicMovieList", num);
+	}
+	public BasicMovieDTO lowPriceMovieList(int num) throws Exception{
+		return sqlSession.selectOne(NAMESPACE+"lowPriceMovieList", num);
 	}
 	// movieRequestTotalCount
 	public int movieRequestTotalCount() throws Exception{

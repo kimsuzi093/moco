@@ -19,6 +19,7 @@ import com.moco.movieAPI.BasicMovieDTO;
 import com.moco.movieAPI.BasicMovieService;
 import com.moco.movieAPI.movieSearch.SearchDTO;
 import com.moco.movieRequest.MovieRequestDTO;
+import com.moco.movieRequest.MovieRequestService;
 import com.moco.util.PageMaker;
 import com.moco.util.PageResult;
 import com.moco.util.RowMaker;
@@ -28,6 +29,8 @@ import com.moco.util.RowMaker;
 public class BasicMovieController {
 	@Inject
 	BasicMovieService basicMovieService;
+	@Inject
+	MovieRequestService movieRequestService;
 
 	@RequestMapping(value = "movieSearchHome", method = RequestMethod.GET)
 	public void movieSearchHome(Model model){
@@ -116,7 +119,19 @@ public class BasicMovieController {
 			testJjim.setId(((MemberDTO)session.getAttribute("memberDTO")).getId());
 			jjimDTO = basicMovieService.jjimCheck(testJjim);
 			review_count = basicMovieService.reviewCount(num);
+
+			
+			// 신청하기, 보러가기, -
+			Map<String, Object> sub_map = new HashMap<String, Object>();
+			sub_map.put("kind","bNum");
+			sub_map.put("bNum", num);
+			movieRequestDTO = movieRequestService.movieRequestSelectOne(sub_map);
+			if(movieRequestDTO != null){
+				model.addAttribute("requestMessage", "접수중");
+			}
+
 			/*MovieRequestDTO = */
+
 		} catch (Exception e) {
 			
 		}
