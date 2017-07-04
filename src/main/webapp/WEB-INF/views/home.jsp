@@ -185,7 +185,7 @@ body {
 				<button class="menu right" id="right"></button>
 			</c:if>
 		</div>
-	
+
 		<!-- Modal -->
 		<div class="modal fade" id="myModal" role="dialog">
 			<div class="modal-dialog">
