@@ -99,7 +99,7 @@
 		width: 300px;
 	}
 	.lastTD{
-		width: 100px;
+		width: 150px;
 		text-align: center;
 	}
 </style>
@@ -163,7 +163,7 @@
 	          		<td class="titleTD"><span class="titleSpan">NUM</span></td>
 					<td class="contentsTD"><input type="number" name="movieNum" class="form-control"></td>
 					<td class="lastTD">
-						<select name="movieKind">
+						<select name="movieKind" class="form-control">
 							<option value="basicMovie">일반 영화</option>
 							<option value="lowPriceMovie">저예산 영화</option>
 						</select>

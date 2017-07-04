@@ -109,8 +109,10 @@ public class AdminController {
 	}
 	// movieUploadInsert
 	@RequestMapping(value="movieUpload", method=RequestMethod.POST)
-	public String movieUploadInsert(HttpSession session, PaidMovieDTO paidMovieDTO, @RequestParam(value="movie") MultipartFile multipartFile) throws Exception{
+	public String movieUploadInsert(HttpSession session, PaidMovieDTO paidMovieDTO, String movieKind, int movieNum, @RequestParam(value="movie") MultipartFile multipartFile) throws Exception{
 		String path = session.getServletContext().getRealPath("resources/upload/adminMovieUpload");
+		// DTO 셋팅
+		paidMovieDTO = paidMovieService.DTOSet(paidMovieDTO, movieKind, movieNum);
 		// oname Set
 		paidMovieDTO.setOname(multipartFile.getOriginalFilename());
 		File f = new File(path);
